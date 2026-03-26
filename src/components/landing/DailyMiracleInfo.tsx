@@ -28,7 +28,7 @@ const DailyMiracleInfo = () => {
           {/* Gold Header Section */}
           <div className="bg-[#C18C3E] h-48 p-10">
              <span className="text-[10px] uppercase tracking-[0.3em] font-bold text-white/60 mb-2 block">Today&apos;s Miracle</span>
-             <h4 className="text-white font-serif text-2xl">Himala Everyday</h4>
+             <h4 className="text-white font-serif text-2xl">Himala Every day</h4>
           </div>
 
           {/* White Overlapping Content Card */}
@@ -71,7 +71,7 @@ const DailyMiracleInfo = () => {
           Think of it as a daily <i className="italic text-brand-gold">miracle</i> in your inbox.
         </h2>
         <p className="text-brand-brown/60 text-lg mb-12 leading-relaxed max-w-xl">
-          Himala Everyday is a free daily message — part reflection, part wisdom, part pep talk — that arrives in your inbox every morning. Think of it as that friend who always knows what to say.
+          Himala Every day is a free daily message — part reflection, part wisdom, part pep talk — that arrives in your inbox every morning. Think of it as that friend who always knows what to say.
         </p>
         
         <div className="space-y-10">

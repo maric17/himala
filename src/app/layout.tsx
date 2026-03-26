@@ -13,15 +13,15 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  title: "Himala Everyday - A small miracle, delivered every morning.",
+  title: "Himala Every day - A small miracle, delivered every morning.",
   description:
     "Welcome to Jesus.net! Access mga articles, resources, at tools to deepen your faith and at mas makilala si Jesus—ang Kanyang mga teachings and love.",
   openGraph: {
-    title: "Himala Everyday - A small miracle, delivered every morning.",
+    title: "Himala Every day - A small miracle, delivered every morning.",
     description:
       "Welcome to Jesus.net! Access mga articles, resources, at tools to deepen your faith and at mas makilala si Jesus—ang Kanyang mga teachings and love.",
     url: "https://himalaeveryday.ph/",
-    siteName: "Himala Everyday",
+    siteName: "Himala Every day",
     locale: "en_PH",
     type: "website",
   },

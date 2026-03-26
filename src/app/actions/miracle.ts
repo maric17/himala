@@ -15,7 +15,7 @@ export async function subscribeToMiracle(email: string) {
     payload.append("fullName", "Himala Subscriber");
     payload.append("email", email);
     payload.append("contactNumber", "N/A"); // Script expects contactNumber
-    payload.append("message", "Signed up via Himala Everyday Final CTA"); // Script expects message
+    payload.append("message", "Signed up via Himala Every day Final CTA"); // Script expects message
 
     const url = MIRACLE_SCRIPT_URL + (MIRACLE_SCRIPT_URL.includes('?') ? '&' : '?') + 'sheetName=Himala Sign-up';
 

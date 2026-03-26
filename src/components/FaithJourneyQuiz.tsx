@@ -48,7 +48,7 @@ const QUESTIONS = [
 
 const RESULTS = {
   himala: {
-    title: "Himala Everyday",
+    title: "Himala Every day",
     description: "Start each day with God. Our Filipino devotionals make Scripture practical and personal—perfect for busy lives.",
     link: "https://himala.everyday.ph.jesus.net",
     displayLink: "himala.everyday.ph.jesus.net",

@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 
 /**
- * Himala Everyday Hero Section
+ * Himala Every day Hero Section
  * Features a high-fidelity background banner and the two-button primary CTA.
  */
 
@@ -17,7 +17,7 @@ const Hero = () => {
       <div className="absolute inset-0 z-0">
         <Image 
           src="/hero_miracle_banner.png" 
-          alt="Himala Everyday Background" 
+          alt="Himala Every day Background" 
           fill
           priority
           className="object-cover opacity-40"
@@ -45,13 +45,15 @@ const Hero = () => {
         </h1>
         
         <p className="text-white/60 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed mb-16 font-light">
-          Life is heavy sometimes. The overthinking, the pressure, the &quot;what now?&quot; — we get it. Himala Everyday is a short, free daily message that somehow makes the day feel lighter.
+          Life is heavy sometimes. The overthinking, the pressure, the &quot;what now?&quot; — we get it. Himala Every day is a short, free daily message that somehow makes the day feel lighter.
         </p>
 
         {/* Two Button CTA Group */}
         <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
           <a 
-            href="#final-cta"
+            href="https://apps.apple.com/ca/app/a-miracle-every-day/id1668769557"
+            target="_blank"
+            rel="noopener noreferrer"
             className="group bg-brand-gold hover:bg-brand-gold/90 text-white px-10 py-5 rounded-full font-bold flex items-center gap-3 transition-all hover:scale-105 shadow-[0_0_20px_rgba(220,162,81,0.2)]"
           >
             Get Your Daily Miracle <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />

@@ -4,7 +4,7 @@ import React from "react";
 import { Facebook, Instagram, Youtube } from "lucide-react";
 
 /**
- * Footer component for Himala Everyday.
+ * Footer component for Himala Every day.
  * Matching the high-fidelity design with language selection top bar,
  * multi-column links, and social bottom bar.
  */

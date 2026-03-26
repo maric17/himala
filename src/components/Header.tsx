@@ -11,7 +11,7 @@ const Header = () => {
             <path d="M7 1v12M2 6h10" stroke="#fff" strokeWidth="1.8" strokeLinecap="round"></path>
           </svg>
         </div>
-        <span className="font-serif text-xl tracking-tight font-semibold text-white/90 group-hover:text-brand-gold transition-colors">Himala Everyday</span>
+        <span className="font-serif text-xl tracking-tight font-semibold text-white/90 group-hover:text-brand-gold transition-colors">Himala Every day</span>
       </a>
       
       <div className="hidden lg:flex items-center gap-8 text-[11px] font-bold text-white/50 tracking-widest uppercase">
