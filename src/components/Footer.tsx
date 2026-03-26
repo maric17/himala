@@ -1,43 +1,99 @@
 "use client";
 
 import React from "react";
-import { Plus } from "lucide-react";
+import { Facebook, Instagram, Youtube } from "lucide-react";
 
 /**
  * Footer component for Himala Everyday.
- * Includes a newsletter signup and site links.
+ * Matching the high-fidelity design with language selection top bar,
+ * multi-column links, and social bottom bar.
  */
 
 const Footer = () => {
   return (
-    <footer className="bg-brand-brown py-32 px-6 text-white text-center">
-      <div className="w-16 h-16 rounded-full bg-brand-gold flex items-center justify-center text-brand-dark-brown mx-auto mb-12">
-        <Plus size={32} />
+    <footer className="relative">
+      {/* Top Banner - Language Selection */}
+      <div className="bg-[#EFDDD0] py-6 text-center border-t border-brand-brown/5">
+        <p className="text-brand-brown/70 text-sm font-medium">
+          Want your daily miracle in another language?{" "}
+          <a href="#" className="text-brand-gold font-bold hover:underline">
+            See all 25+ languages →
+          </a>
+        </p>
       </div>
-      <h2 className="text-5xl font-serif mb-12">Join 1 million subscribers.</h2>
-      <div className="max-w-md mx-auto relative mb-20">
-          <input 
-              type="email" 
-              placeholder="Enter your email address" 
-              className="w-full bg-white/5 border border-white/10 rounded-full px-8 py-5 text-lg focus:outline-none focus:border-brand-gold transition-all"
-          />
-          <button className="absolute right-2 top-2 bottom-2 bg-brand-gold text-brand-dark-brown px-8 rounded-full font-bold hover:bg-white transition-all">
-              Subscribe
-          </button>
-      </div>
-      
-      <div className="flex flex-wrap justify-center gap-12 text-sm text-white/40 font-medium uppercase tracking-widest">
-          <a href="#" className="hover:text-white transition-colors">Privacy Policy</a>
-          <a href="#" className="hover:text-white transition-colors">Terms of Service</a>
-          <a href="#" className="hover:text-white transition-colors">Contact Us</a>
-          <a href="#" className="hover:text-white transition-colors">Our Story</a>
-      </div>
-      
-      <div className="mt-20 text-white/20 text-xs">
-          © 2026 Himala Everyday. Part of the Jesus.net family.
+
+      {/* Main Footer Content */}
+      <div className="bg-brand-dark-brown text-white/40 py-24 px-6 md:px-12">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-16 md:gap-8 mb-24">
+            {/* Brand Section */}
+            <div className="col-span-1 md:col-span-12 lg:col-span-5">
+              <h3 className="text-white font-serif text-3xl mb-8">Jesus.Net Philippines</h3>
+              <p className="text-white/40 leading-relaxed max-w-sm mb-8">
+                Bringing daily miracles to Filipinos through stories, wisdom, and community. Part of the global Jesus.Net family.
+              </p>
+            </div>
+
+            {/* Links Columns */}
+            <div className="col-span-1 md:col-span-3 lg:col-span-2 lg:ml-auto">
+              <h4 className="text-[10px] uppercase tracking-[0.25em] font-bold text-white/20 mb-8">Explore</h4>
+              <ul className="space-y-4">
+                <li><a href="https://ph.jesus.net/films-and-series" className="text-sm hover:text-brand-gold transition-colors">Films & Series</a></li>
+                <li><a href="https://ph.jesus.net/the-chosen" className="text-sm hover:text-brand-gold transition-colors">The Chosen</a></li>
+                <li><a href="https://myjourney.ph.jesus.net/" className="text-sm hover:text-brand-gold transition-colors">My Journey</a></li>
+                <li><a href="https://ph.jesus.net/a-miracle-every-day" className="text-sm hover:text-brand-gold transition-colors">A Miracle Every Day</a></li>
+              </ul>
+            </div>
+
+            <div className="col-span-1 md:col-span-3 lg:col-span-2 lg:ml-auto">
+              <h4 className="text-[10px] uppercase tracking-[0.25em] font-bold text-white/20 mb-8">About</h4>
+              <ul className="space-y-4">
+                <li><a href="#" className="text-sm hover:text-brand-gold transition-colors">Who We Are</a></li>
+                <li><a href="#" className="text-sm hover:text-brand-gold transition-colors">Partners</a></li>
+                <li><a href="#" className="text-sm hover:text-brand-gold transition-colors">Join Us</a></li>
+                <li><a href="#" className="text-sm hover:text-brand-gold transition-colors">Volunteer</a></li>
+              </ul>
+            </div>
+
+            <div className="col-span-1 md:col-span-3 lg:col-span-2 lg:ml-auto">
+              <h4 className="text-[10px] uppercase tracking-[0.25em] font-bold text-white/20 mb-8">Help</h4>
+              <ul className="space-y-4">
+                <li><a href="#" className="text-sm hover:text-brand-gold transition-colors">Contact</a></li>
+                <li><a href="https://ph.jesus.net/privacy" className="text-sm hover:text-brand-gold transition-colors">Privacy</a></li>
+                <li><a href="https://ph.jesus.net/cookies" className="text-sm hover:text-brand-gold transition-colors">Cookies</a></li>
+              </ul>
+            </div>
+          </div>
+
+          {/* Bottom Bar */}
+          <div className="pt-12 border-t border-white/5 flex flex-col md:grid md:grid-cols-2 items-center gap-8">
+            <div className="text-[10px] uppercase tracking-[0.2em] font-bold text-white/20 order-2 md:order-1 text-center md:text-left">
+              © 2026 ph.Jesus.net • A <span className="text-brand-gold">WebNL</span> site
+            </div>
+            
+            <div className="flex items-center gap-4 order-1 md:order-2 md:justify-self-end">
+              <a href="https://www.facebook.com/Jesus.netPH" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-white/10 hover:text-brand-gold transition-all text-white/40">
+                <Facebook size={18} />
+              </a>
+              <a href="https://www.instagram.com/jesus.net_ph/" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-white/10 hover:text-brand-gold transition-all text-white/40">
+                <Instagram size={18} />
+              </a>
+              <a href="https://www.youtube.com/@ThelifeofJesus" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-white/10 hover:text-brand-gold transition-all text-white/40">
+                <Youtube size={18} />
+              </a>
+              <a href="https://www.tiktok.com/@jesus.net_ph" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-white/10 hover:text-brand-gold transition-all text-white/40">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5" />
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
       </div>
     </footer>
   );
 };
 
 export default Footer;
+
+
