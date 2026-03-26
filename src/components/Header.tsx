@@ -15,7 +15,7 @@ const Header = () => {
       </a>
       
       <div className="hidden lg:flex items-center gap-8 text-[11px] font-bold text-white/50 tracking-widest uppercase">
-        <a href="https://jesus.net.ph/" target="_blank" rel="noopener noreferrer" className="hover:text-brand-gold transition-colors">Home</a>
+        <a href="https://jesus.net.ph/" rel="noopener noreferrer" className="hover:text-brand-gold transition-colors">Home</a>
         <a href="#your-story" className="hover:text-brand-gold transition-colors">Your Story</a>
         <a href="#what-is-it" className="hover:text-brand-gold transition-colors">Ano Ito?</a>
         <a href="#testimonials" className="hover:text-brand-gold transition-colors">Real Talk</a>

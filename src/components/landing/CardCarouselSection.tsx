@@ -101,7 +101,7 @@ const CardCarouselSection = () => {
                 <div className="text-[10px] font-bold uppercase tracking-widest bg-white/10 w-fit backdrop-blur-sm px-4 py-1 rounded-full mb-6 text-brand-gold">March 26, 2026</div>
                 <h3 className="text-3xl font-serif mb-4 leading-tight italic">He&apos;s been thinking about YOU this whole time!</h3>
                 <p className="text-white/60 text-sm leading-relaxed mb-8">A reminder of God&apos;s constant presence and love for you.</p>
-                <a href="https://ph.jesus.net/miracles/hes-been-thinking-about-you-this-whole-time" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-brand-gold font-bold text-sm">Read miracle <ArrowRight size={14} /></a>
+                <a href="https://ph.jesus.net/miracles/hes-been-thinking-about-you-this-whole-time"  rel="noopener noreferrer" className="flex items-center gap-2 text-brand-gold font-bold text-sm">Read miracle <ArrowRight size={14} /></a>
             </div>
           </motion.div>
           
@@ -125,7 +125,7 @@ const CardCarouselSection = () => {
                 <div className="text-[10px] font-bold uppercase tracking-widest bg-white/10 w-fit backdrop-blur-sm px-4 py-1 rounded-full mb-6 text-brand-gold">March 25, 2026</div>
                 <h3 className="text-3xl font-serif mb-4 leading-tight italic">Alam mo ba ang mga sugat na tinanggap ni Jesus?</h3>
                 <p className="text-white/60 text-sm leading-relaxed mb-8">Reflecting on the sacrifice that changed everything.</p>
-                <a href="https://ph.jesus.net/miracles/alam-mo-ba-ang-mga-sugat-na-tinanggap-ni-jesus" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-brand-gold font-bold text-sm">Read miracle <ArrowRight size={14} /></a>
+                <a href="https://ph.jesus.net/miracles/alam-mo-ba-ang-mga-sugat-na-tinanggap-ni-jesus"  rel="noopener noreferrer" className="flex items-center gap-2 text-brand-gold font-bold text-sm">Read miracle <ArrowRight size={14} /></a>
             </div>
           </motion.div>
           
@@ -149,7 +149,7 @@ const CardCarouselSection = () => {
                 <div className="text-[10px] font-bold uppercase tracking-widest bg-white/10 w-fit backdrop-blur-sm px-4 py-1 rounded-full mb-6 text-brand-gold">March 24, 2026</div>
                 <h3 className="text-3xl font-serif mb-4 leading-tight italic">Alam mo ba ang pinagdaanan ni Jesus?</h3>
                 <p className="text-white/60 text-sm leading-relaxed mb-8">A journey through the path that leads to hope.</p>
-                <a href="https://ph.jesus.net/miracles/alam-mo-ba-ang-pinagdaanan-ni-jesus" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-brand-gold font-bold text-sm">Read miracle <ArrowRight size={14} /></a>
+                <a href="https://ph.jesus.net/miracles/alam-mo-ba-ang-pinagdaanan-ni-jesus"  rel="noopener noreferrer" className="flex items-center gap-2 text-brand-gold font-bold text-sm">Read miracle <ArrowRight size={14} /></a>
             </div>
           </motion.div>
 
@@ -173,7 +173,7 @@ const CardCarouselSection = () => {
                 <div className="text-[10px] font-bold uppercase tracking-widest bg-white/10 w-fit backdrop-blur-sm px-4 py-1 rounded-full mb-6 text-brand-gold">March 23, 2026</div>
                 <h3 className="text-3xl font-serif mb-4 leading-tight italic">Bakit nga ba kailangan ang cross?</h3>
                 <p className="text-white/60 text-sm leading-relaxed mb-8">Understanding the profound necessity of the cross.</p>
-                <a href="https://ph.jesus.net/miracles/bakit-nga-ba-kailangan-ang-cross" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-brand-gold font-bold text-sm">Read miracle <ArrowRight size={14} /></a>
+                <a href="https://ph.jesus.net/miracles/bakit-nga-ba-kailangan-ang-cross"  rel="noopener noreferrer" className="flex items-center gap-2 text-brand-gold font-bold text-sm">Read miracle <ArrowRight size={14} /></a>
             </div>
           </motion.div>
 
@@ -193,7 +193,6 @@ const CardCarouselSection = () => {
             <p className="text-brand-brown/50 text-sm leading-relaxed mb-10 max-w-[240px]">There is a story waiting for you. Browse our entire collection of hope.</p>
             <a 
                 href="https://ph.jesus.net/miracles" 
-                target="_blank" 
                 rel="noopener noreferrer"
                 className="bg-brand-brown text-white px-8 py-3 rounded-full font-bold text-sm flex items-center gap-2 hover:bg-brand-gold transition-colors"
             >
