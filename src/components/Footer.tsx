@@ -27,7 +27,7 @@ const Footer = () => {
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-12 gap-16 md:gap-8 mb-24">
             {/* Brand Section */}
-            <div className="col-span-1 md:col-span-12 lg:col-span-5">
+            <div className="col-span-1 md:col-span-12 lg:col-span-6">
               <h3 className="text-white font-serif text-3xl mb-8">Jesus.Net Philippines</h3>
               <p className="text-white/40 leading-relaxed max-w-sm mb-8">
                 Bringing daily miracles to Filipinos through stories, wisdom, and community. Part of the global Jesus.Net family.
@@ -35,7 +35,7 @@ const Footer = () => {
             </div>
 
             {/* Links Columns */}
-            <div className="col-span-1 md:col-span-3 lg:col-span-2 lg:ml-auto">
+            <div className="col-span-1 md:col-span-6 lg:col-span-3">
               <h4 className="text-[10px] uppercase tracking-[0.25em] font-bold text-white/20 mb-8">Explore</h4>
               <ul className="space-y-4">
                 <li><a href="https://ph.jesus.net/films-and-series" className="text-sm hover:text-brand-gold transition-colors">Films & Series</a></li>
@@ -45,17 +45,7 @@ const Footer = () => {
               </ul>
             </div>
 
-            <div className="col-span-1 md:col-span-3 lg:col-span-2 lg:ml-auto">
-              <h4 className="text-[10px] uppercase tracking-[0.25em] font-bold text-white/20 mb-8">About</h4>
-              <ul className="space-y-4">
-                <li><a href="#" className="text-sm hover:text-brand-gold transition-colors">Who We Are</a></li>
-                <li><a href="#" className="text-sm hover:text-brand-gold transition-colors">Partners</a></li>
-                <li><a href="#" className="text-sm hover:text-brand-gold transition-colors">Join Us</a></li>
-                <li><a href="#" className="text-sm hover:text-brand-gold transition-colors">Volunteer</a></li>
-              </ul>
-            </div>
-
-            <div className="col-span-1 md:col-span-3 lg:col-span-2 lg:ml-auto">
+            <div className="col-span-1 md:col-span-6 lg:col-span-3">
               <h4 className="text-[10px] uppercase tracking-[0.25em] font-bold text-white/20 mb-8">Help</h4>
               <ul className="space-y-4">
                 <li><a href="#" className="text-sm hover:text-brand-gold transition-colors">Contact</a></li>
