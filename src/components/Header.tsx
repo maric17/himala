@@ -1,14 +1,15 @@
 "use client";
 
 import React from "react";
-import { Plus } from "lucide-react";
 
 const Header = () => {
   return (
     <nav className="flex items-center justify-between px-6 py-4 max-w-7xl mx-auto w-full absolute top-0 left-1/2 -translate-x-1/2 z-50">
       <a href="#" className="flex items-center gap-2 group">
         <div className="w-8 h-8 rounded-full bg-brand-gold flex items-center justify-center text-brand-dark-brown group-hover:scale-110 transition-transform">
-          <Plus size={18} />
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M7 1v12M2 6h10" stroke="#fff" strokeWidth="1.8" strokeLinecap="round"></path>
+          </svg>
         </div>
         <span className="font-serif text-xl tracking-tight font-semibold text-white/90 group-hover:text-brand-gold transition-colors">Himala Everyday</span>
       </a>
