@@ -13,11 +13,6 @@ import HumansBehind from "@/components/landing/HumansBehind";
 import TheApp from "@/components/landing/TheApp";
 import FinalCTA from "@/components/landing/FinalCTA";
 
-/**
- * Himala Everyday Landing Page
- * Now using a modular structure with separated components.
- */
-
 export default function Home() {
   return (
     <main className="min-h-screen bg-background-cream">
