@@ -59,7 +59,6 @@ const SampleMiracles = () => {
                         <motion.a 
                             key={i} 
                             href={miracle.link}
-                            target="_blank"
                             rel="noopener noreferrer"
                             initial={{ opacity: 0, y: 30 }}
                             whileInView={{ opacity: 1, y: 0 }}
@@ -97,7 +96,6 @@ const SampleMiracles = () => {
                 >
                     <a 
                         href="https://ph.jesus.net/miracles"
-                        target="_blank"
                         rel="noopener noreferrer"
                         className="bg-brand-dark-brown text-white px-10 py-5 rounded-full font-bold hover:bg-brand-brown transition-all flex items-center gap-4 group shadow-xl"
                     >
