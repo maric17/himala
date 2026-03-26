@@ -5,7 +5,6 @@ import { motion } from "framer-motion";
 
 const StatsRibbon = () => {
   const stats = [
-    { label: "Countries", value: "160+" },
     { label: "Languages", value: "25+" },
     { label: "Daily Read", value: "3 min" },
     { label: "Forever Free", value: "₱0" },
