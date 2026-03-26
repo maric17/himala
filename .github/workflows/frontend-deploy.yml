@@ -39,6 +39,14 @@ jobs:
             echo "${{ secrets.FRONTEND_SECRETS }}" > .env
             chmod 600 .env
             
+            # Pull the latest image we just pushed to Docker Hub
             docker compose pull
-            docker compose up -d
+            
+            # Re-create the web container with the new image
+            docker compose up -d --remove-orphans
+            
+            # CRITICAL: Refresh Nginx to clear any 502/Internal IP caching
+            docker compose restart nginx
+            
+            # Clean up old, unused images to save disk space
             docker image prune -f
