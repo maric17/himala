@@ -12,7 +12,7 @@ export async function subscribeToMiracle(email: string) {
 
     const payload = new URLSearchParams();
     payload.append("sheetName", "Himala Sign-up");
-    payload.append("fullName", "Himala Subscriber"); // Script expects fullName
+    payload.append("fullName", "Himala Subscriber");
     payload.append("email", email);
     payload.append("contactNumber", "N/A"); // Script expects contactNumber
     payload.append("message", "Signed up via Himala Everyday Final CTA"); // Script expects message
