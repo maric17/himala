@@ -26,7 +26,7 @@ const FinalCTA = () => {
 
                 <div className="flex justify-center mb-8">
                     <a 
-                        href="https://ph.jesus.net/a-miracle-every-day#subscribe"
+                        href="https://ph.jesus.net/a-miracle-every-day?utm_source=himalaeveryday&utm_medium=cta&utm_campaign=tlen_amed_2026&utm_content=himalaeveryday_cta#subscribe"
                         rel="noopener noreferrer"
                         className="bg-brand-dark-brown text-white px-12 py-4 rounded-full font-bold hover:bg-brand-brown transition-all shadow-lg hover:shadow-xl inline-block"
                     >
