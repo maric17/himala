@@ -19,7 +19,7 @@ const Testimonials = () => {
         },
         {
             tag: "WAS STARTING OVER",
-            text: "Reading Himala Every day is like water in the desert. My life changed in ways I didn&apos;t expect. Parang gumaan ang lahat. I wish I found this sooner.",
+            text: "Reading Himala Every Day is like water in the desert. My life changed in ways I didn&apos;t expect. Parang gumaan ang lahat. I wish I found this sooner.",
             author: "Paolo, Baguio",
             tagColor: "text-purple-600 bg-purple-50"
         }

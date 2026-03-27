@@ -17,7 +17,7 @@ import { cn } from "@/lib/utils";
 
 const TOOLS = [
   {
-    name: "Himala Every day",
+    name: "Himala Every Day",
     description: "Daily devotionals in Filipino that bring Scripture to life with practical reflections for your everyday walk with God.",
     url: "https://ph.jesus.net/a-miracle-every-day",
     displayUrl: "ph.jesus.net/a-miracle-every-day",

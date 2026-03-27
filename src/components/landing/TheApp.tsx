@@ -5,7 +5,7 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 
 /**
- * Himala Every day App Section
+ * Himala Every Day App Section
  * Features direct links to App Store and Google Play plus a high-fidelity image mock-up.
  */
 
@@ -72,7 +72,7 @@ const TheApp = () => {
 
                             <Image 
                                 src="/images/churches/Taglish-iPhone-on-Hand.png"
-                                alt="Himala Every day Mobile App"
+                                alt="Himala Every Day Mobile App"
                                 fill
                                 className="object-contain z-10"
                                 priority

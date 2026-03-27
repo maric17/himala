@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 
 /**
- * Himala Every day Hero Section
+ * Himala Every Day Hero Section
  * Features a high-fidelity background banner and the two-button primary CTA.
  */
 
@@ -17,7 +17,7 @@ const Hero = () => {
       <div className="absolute inset-0 z-0">
         <Image 
           src="/hero_miracle_banner.png" 
-          alt="Himala Every day Background" 
+          alt="Himala Every Day Background" 
           fill
           priority
           className="object-cover opacity-40"
@@ -45,7 +45,7 @@ const Hero = () => {
         </h1>
         
         <p className="text-white/60 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed mb-16 font-light">
-          Life is heavy sometimes. The overthinking, the pressure, the &quot;what now?&quot; — we get it. Himala Every day is a short, free daily message that somehow makes the day feel lighter.
+          Life is heavy sometimes. The overthinking, the pressure, the &quot;what now?&quot; — we get it. Himala Every Day is a short, free daily message that somehow makes the day feel lighter.
         </p>
 
         {/* Two Button CTA Group */}
