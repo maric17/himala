@@ -9,8 +9,21 @@ import { ArrowRight } from "lucide-react";
  * Himala Every Day Hero Section
  * Features a high-fidelity background banner and the two-button primary CTA.
  */
-
 const Hero = () => {
+  const [storeLink, setStoreLink] = React.useState("https://apps.apple.com/ca/app/a-miracle-every-day/id1668769557");
+
+  React.useEffect(() => {
+    const userAgent = typeof navigator !== "undefined" ? navigator.userAgent : "";
+    const isIOS = /iPad|iPhone|iPod/.test(userAgent);
+    const isAndroid = /Android/i.test(userAgent);
+
+    if (isIOS) {
+      setStoreLink("https://apps.apple.com/ca/app/a-miracle-every-day/id1668769557");
+    } else if (isAndroid) {
+      setStoreLink("https://play.google.com/store/apps/details?id=net.jesus.amed&hl=en_US");
+    }
+  }, []);
+
   return (
     <section className="relative min-h-screen flex flex-col items-center justify-center text-center px-4 pt-40 pb-20 bg-brand-brown overflow-hidden">
       {/* High-Fidelity Background Image with Overlay */}
@@ -51,7 +64,7 @@ const Hero = () => {
         {/* Two Button CTA Group */}
         <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
           <a 
-            href="https://apps.apple.com/ca/app/a-miracle-every-day/id1668769557"
+            href={storeLink}
             target="_blank"
             rel="noopener noreferrer"
             className="group bg-brand-gold hover:bg-brand-gold/90 text-white px-10 py-5 rounded-full font-bold flex items-center gap-3 transition-all hover:scale-105 shadow-[0_0_20px_rgba(220,162,81,0.2)]"
