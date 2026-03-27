@@ -98,7 +98,6 @@ const CardCarouselSection = () => {
             <div className="absolute inset-0 bg-gradient-to-t from-brand-dark-brown via-brand-dark-brown/40 to-transparent z-0"></div>
             
             <div className="relative z-10">
-                <div className="text-[10px] font-bold uppercase tracking-widest bg-white/10 w-fit backdrop-blur-sm px-4 py-1 rounded-full mb-6 text-brand-gold">March 26, 2026</div>
                 <h3 className="text-3xl font-serif mb-4 leading-tight italic">He&apos;s been thinking about YOU this whole time!</h3>
                 <p className="text-white/60 text-sm leading-relaxed mb-8">A reminder of God&apos;s constant presence and love for you.</p>
                 <a href="https://ph.jesus.net/miracles/hes-been-thinking-about-you-this-whole-time"  rel="noopener noreferrer" className="flex items-center gap-2 text-brand-gold font-bold text-sm">Read miracle <ArrowRight size={14} /></a>
@@ -122,7 +121,6 @@ const CardCarouselSection = () => {
             <div className="absolute inset-0 bg-gradient-to-t from-brand-dark-brown via-brand-dark-brown/40 to-transparent z-0"></div>
             
             <div className="relative z-10">
-                <div className="text-[10px] font-bold uppercase tracking-widest bg-white/10 w-fit backdrop-blur-sm px-4 py-1 rounded-full mb-6 text-brand-gold">March 25, 2026</div>
                 <h3 className="text-3xl font-serif mb-4 leading-tight italic">Alam mo ba ang mga sugat na tinanggap ni Jesus?</h3>
                 <p className="text-white/60 text-sm leading-relaxed mb-8">Reflecting on the sacrifice that changed everything.</p>
                 <a href="https://ph.jesus.net/miracles/alam-mo-ba-ang-mga-sugat-na-tinanggap-ni-jesus"  rel="noopener noreferrer" className="flex items-center gap-2 text-brand-gold font-bold text-sm">Read miracle <ArrowRight size={14} /></a>
@@ -146,7 +144,6 @@ const CardCarouselSection = () => {
             <div className="absolute inset-0 bg-gradient-to-t from-brand-dark-brown via-brand-dark-brown/40 to-transparent z-0"></div>
             
             <div className="relative z-10">
-                <div className="text-[10px] font-bold uppercase tracking-widest bg-white/10 w-fit backdrop-blur-sm px-4 py-1 rounded-full mb-6 text-brand-gold">March 24, 2026</div>
                 <h3 className="text-3xl font-serif mb-4 leading-tight italic">Alam mo ba ang pinagdaanan ni Jesus?</h3>
                 <p className="text-white/60 text-sm leading-relaxed mb-8">A journey through the path that leads to hope.</p>
                 <a href="https://ph.jesus.net/miracles/alam-mo-ba-ang-pinagdaanan-ni-jesus"  rel="noopener noreferrer" className="flex items-center gap-2 text-brand-gold font-bold text-sm">Read miracle <ArrowRight size={14} /></a>
@@ -170,7 +167,6 @@ const CardCarouselSection = () => {
             <div className="absolute inset-0 bg-gradient-to-t from-brand-dark-brown via-brand-dark-brown/40 to-transparent z-0"></div>
             
             <div className="relative z-10">
-                <div className="text-[10px] font-bold uppercase tracking-widest bg-white/10 w-fit backdrop-blur-sm px-4 py-1 rounded-full mb-6 text-brand-gold">March 23, 2026</div>
                 <h3 className="text-3xl font-serif mb-4 leading-tight italic">Bakit nga ba kailangan ang cross?</h3>
                 <p className="text-white/60 text-sm leading-relaxed mb-8">Understanding the profound necessity of the cross.</p>
                 <a href="https://ph.jesus.net/miracles/bakit-nga-ba-kailangan-ang-cross"  rel="noopener noreferrer" className="flex items-center gap-2 text-brand-gold font-bold text-sm">Read miracle <ArrowRight size={14} /></a>
@@ -202,7 +198,6 @@ const CardCarouselSection = () => {
         </div>
       </div>
     </section>
-
   );
 };
 

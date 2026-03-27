@@ -28,9 +28,9 @@ const Footer = () => {
           <div className="grid grid-cols-1 md:grid-cols-12 gap-16 md:gap-8 mb-24">
             {/* Brand Section */}
             <div className="col-span-1 md:col-span-12 lg:col-span-6">
-              <h3 className="text-white font-serif text-3xl mb-8">Jesus.Net Philippines</h3>
-              <p className="text-white/40 leading-relaxed max-w-sm mb-8">
-                Bringing daily miracles to Filipinos through stories, wisdom, and community. Part of the global Jesus.Net family.
+              <h3 className="text-white font-serif text-3xl mb-8">Jesus.Net Philippines and<br></br> Nyxsys Philippines, Inc.</h3>
+              <p className="text-white/40 leading-relaxed max-w-lg mb-8">
+                Bringing daily miracles to Filipinos through stories, wisdom, and community. Part of the global Jesus.Net family and in strong partnership with <a href="https://nyxsys.ph/" target="_blank" rel="noopener noreferrer" className="text-brand-gold hover:underline">https://nyxsys.ph/</a>. To God be the glory!
               </p>
             </div>
 

@@ -74,7 +74,7 @@ const SampleMiracles = () => {
                                     className="object-cover group-hover:scale-110 transition-transform duration-1000 opacity-80"
                                 />
                                 <div className="absolute inset-0 bg-gradient-to-b from-black/20 to-brand-dark-brown/40"></div>
-                                <div className="absolute top-6 left-6 bg-white/90 backdrop-blur-sm text-brand-brown text-[10px] font-bold px-3 py-1 rounded-full w-fit">{miracle.date}</div>
+                                
                             </div>
                             <div className="p-8">
                                 <h3 className="font-serif text-xl font-bold mb-4 group-hover:text-brand-gold transition-colors italic leading-relaxed text-brand-dark-brown">{miracle.title}</h3>
