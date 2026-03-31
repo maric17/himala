@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Montserrat, Playfair_Display } from "next/font/google";
+import Script from "next/script";
 import "./globals.scss";
 
 const montserrat = Montserrat({
@@ -42,6 +43,19 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${montserrat.variable} ${playfair.variable}`}>
       <body className="font-sans antialiased text-brand-brown bg-background-cream selection:bg-brand-gold/20">
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-C5NXD7WFKS"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-C5NXD7WFKS');
+          `}
+        </Script>
         <Header />
         {children}
         <Footer />
