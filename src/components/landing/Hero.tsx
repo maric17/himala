@@ -64,7 +64,7 @@ const Hero = () => {
         {/* Two Button CTA Group */}
         <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
           <a 
-            href={storeLink}
+            href={"https://ph.jesus.net/a-miracle-every-day?utm_source=himalaeveryday&utm_medium=cta&utm_campaign=tlen_amed_2026&utm_content=himalaeveryday_cta#subscribe"}
             target="_blank"
             rel="noopener noreferrer"
             className="group bg-brand-gold hover:bg-brand-gold/90 text-white px-10 py-5 rounded-full font-bold flex items-center gap-3 transition-all hover:scale-105 shadow-[0_0_20px_rgba(220,162,81,0.2)]"
