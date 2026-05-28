@@ -2,8 +2,11 @@
 
 import React from "react";
 import { motion } from "framer-motion";
+import { ArrowRight } from "lucide-react";
+import { useLandingCapture } from "@/components/landing/CaptureProvider";
 
 const Testimonials = () => {
+    const { scrollToPrimaryCapture } = useLandingCapture();
     const reviews = [
         {
             tag: "WAS BURNED OUT",
@@ -66,6 +69,32 @@ const Testimonials = () => {
                         </motion.div>
                     ))}
                 </div>
+
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.7, delay: 0.2 }}
+                    className="mt-12 rounded-[32px] bg-brand-dark-brown px-8 py-10 text-left text-white md:flex md:items-center md:justify-between md:gap-8"
+                >
+                    <div className="max-w-2xl">
+                        <p className="text-[10px] uppercase tracking-[0.24em] font-bold text-brand-gold/80 mb-3">
+                            Ready for your own daily rhythm?
+                        </p>
+                        <h3 className="text-3xl font-serif leading-tight">
+                            Start with one short miracle tomorrow morning.
+                        </h3>
+                    </div>
+
+                    <button
+                        type="button"
+                        onClick={() => scrollToPrimaryCapture("testimonials")}
+                        className="mt-6 inline-flex items-center gap-3 rounded-full bg-brand-gold px-6 py-4 font-bold text-white transition-all hover:translate-y-[-1px] md:mt-0"
+                    >
+                        Get My Daily Miracle
+                        <ArrowRight size={16} />
+                    </button>
+                </motion.div>
             </div>
         </section>
     );

@@ -2,59 +2,55 @@
 
 import React from "react";
 import { motion } from "framer-motion";
+import CaptureForm from "@/components/landing/CaptureForm";
 
 const FinalCTA = () => {
-    return (
-        <section id="final-cta" className="py-32 bg-background-cream relative overflow-hidden">
-            <motion.div 
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.8 }}
-                className="max-w-3xl mx-auto px-6 text-center relative z-10"
-            >
-                <div className="flex items-center justify-center gap-4 mb-2">
-                    <div className="w-8 h-[1px] bg-brand-gold"></div>
-                    <span className="text-[10px] uppercase tracking-[0.2em] font-bold text-brand-gold">Your first miracle</span>
-                </div>
-                <h2 className="text-5xl md:text-7xl font-serif text-brand-brown leading-tight mb-12">
-                    Tomorrow morning,<br />a <span className="italic text-brand-gold">miracle</span> is waiting in your inbox.
-                </h2>
-                <p className="text-brand-brown/60 text-lg mb-12 leading-relaxed max-w-xl mx-auto">
-                    One email. That&apos;s the only thing between you and a daily reminder that life can be lighter. It&apos;s free. It&apos;s short. And somehow, it works.
-                </p>
+  return (
+    <section
+      id="final-cta"
+      className="relative overflow-hidden bg-background-cream py-32"
+    >
+      <motion.div
+        initial={{ opacity: 0, y: 24 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.8 }}
+        className="relative z-10 mx-auto max-w-4xl px-6"
+      >
+        <div className="rounded-[40px] bg-brand-dark-brown px-6 py-10 text-center shadow-[0_28px_70px_rgba(26,18,14,0.16)] sm:px-10 sm:py-12">
+          <div className="mb-2 flex items-center justify-center gap-4">
+            <div className="h-px w-8 bg-brand-gold" />
+            <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-brand-gold">
+              Your first miracle
+            </span>
+            <div className="h-px w-8 bg-brand-gold" />
+          </div>
 
-                <div className="flex justify-center mb-8">
-                    <a 
-                        href="https://ph.jesus.net/a-miracle-every-day?utm_source=himalaeveryday&utm_medium=cta&utm_campaign=tlen_amed_2026&utm_content=himalaeveryday_cta#subscribe"
-                        rel="noopener noreferrer"
-                        className="bg-brand-dark-brown text-white px-12 py-4 rounded-full font-bold hover:bg-brand-brown transition-all shadow-lg hover:shadow-xl inline-block"
-                    >
-                        Subscribe
-                    </a>
-                </div>
-                <p className="text-[10px] uppercase tracking-widest font-bold text-brand-brown/30">
-                    Free forever. Unsubscribe anytime. We don&apos;t do spam — only miracles.
-                </p>
-            </motion.div>
-            
-            <motion.div 
-                initial={{ opacity: 0, scale: 0.8 }}
-                whileInView={{ opacity: 0.05, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 1.5 }}
-                className="absolute top-0 right-0 w-64 h-64 bg-card-gold/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"
-            ></motion.div>
-            <motion.div 
-                initial={{ opacity: 0, scale: 0.8 }}
-                whileInView={{ opacity: 0.05, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 1.5, delay: 0.2 }}
-                className="absolute bottom-0 left-0 w-96 h-96 bg-card-red/5 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2"
-            ></motion.div>
-        </section>
-    );
+          <h2 className="mx-auto max-w-3xl text-5xl font-serif leading-tight text-white md:text-6xl">
+            Tomorrow morning, a <span className="italic text-brand-gold">miracle</span>
+            <br />
+            can be waiting in your inbox.
+          </h2>
+
+          <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-white/62">
+            One email. That&apos;s the only thing between you and a daily
+            reminder that life can be lighter, steadier, and more hopeful.
+          </p>
+
+          <CaptureForm
+            source="final_cta"
+            variant="panel"
+            submitLabel="Start My Daily Miracle"
+            helperText="Free forever. Unsubscribe anytime. We do not do spam, only one daily miracle."
+            className="mx-auto mt-10 max-w-3xl text-left"
+          />
+        </div>
+      </motion.div>
+
+      <div className="absolute right-0 top-0 h-64 w-64 -translate-y-1/2 translate-x-1/2 rounded-full bg-card-gold/10 blur-3xl" />
+      <div className="absolute bottom-0 left-0 h-80 w-80 translate-y-1/2 -translate-x-1/2 rounded-full bg-card-red/10 blur-3xl" />
+    </section>
+  );
 };
 
 export default FinalCTA;
-

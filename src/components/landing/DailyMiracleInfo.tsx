@@ -3,6 +3,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { ArrowRight, Clock, Pen, ShieldCheck } from "lucide-react";
+import { useLandingCapture } from "@/components/landing/CaptureProvider";
 
 /**
  * DailyMiracleInfo Section
@@ -10,6 +11,8 @@ import { ArrowRight, Clock, Pen, ShieldCheck } from "lucide-react";
  */
 
 const DailyMiracleInfo = () => {
+  const { scrollToPrimaryCapture } = useLandingCapture();
+
   return (
     <section id="what-is-it" className="py-32 px-6 max-w-7xl mx-auto grid lg:grid-cols-2 gap-20 items-center">
       {/* Left side: The Visual Card */}
@@ -107,12 +110,13 @@ const DailyMiracleInfo = () => {
         </div>
         
         <div className="mt-16">
-          <a 
-            href="#final-cta"
+          <button
+            type="button"
+            onClick={() => scrollToPrimaryCapture("daily_info")}
             className="inline-flex bg-brand-gold hover:bg-brand-gold/90 text-white px-10 py-5 rounded-full font-bold items-center gap-3 transition-all hover:scale-105 shadow-[0_0_20px_rgba(220,162,81,0.2)]"
           >
             Get Your Daily Miracle <ArrowRight size={18} />
-          </a>
+          </button>
         </div>
       </motion.div>
     </section>
@@ -120,4 +124,3 @@ const DailyMiracleInfo = () => {
 };
 
 export default DailyMiracleInfo;
-

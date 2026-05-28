@@ -93,6 +93,7 @@ const CardCarouselSection = () => {
                 src="/images/churches/11a2f2b0-b80c-49ef-9def-feb61d488095___media_library_original_420_675.webp"
                 alt="He's been thinking about YOU"
                 fill
+                sizes="(min-width: 768px) 400px, 85vw"
                 className="object-cover opacity-60 group-hover:scale-110 transition-transform duration-1000"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-brand-dark-brown via-brand-dark-brown/40 to-transparent z-0"></div>
@@ -116,6 +117,7 @@ const CardCarouselSection = () => {
                 src="/images/churches/36c813cf-8199-4d41-83f8-a98ce3d32589___media_library_original_420_675.webp"
                 alt="Mga sugat na tinanggap ni Jesus"
                 fill
+                sizes="(min-width: 768px) 400px, 85vw"
                 className="object-cover opacity-60 group-hover:scale-110 transition-transform duration-1000"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-brand-dark-brown via-brand-dark-brown/40 to-transparent z-0"></div>
@@ -139,6 +141,7 @@ const CardCarouselSection = () => {
                 src="/images/churches/354f496c-4b8d-46aa-b832-81a5feeba8d4___media_library_original_420_675.webp"
                 alt="Pinagdaanan ni Jesus"
                 fill
+                sizes="(min-width: 768px) 400px, 85vw"
                 className="object-cover opacity-60 group-hover:scale-110 transition-transform duration-1000"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-brand-dark-brown via-brand-dark-brown/40 to-transparent z-0"></div>
@@ -162,6 +165,7 @@ const CardCarouselSection = () => {
                 src="/images/churches/d82b5088-ca46-4d94-87db-f96166242ecf___media_library_original_420_675.webp"
                 alt="Bakit kailangan ang cross"
                 fill
+                sizes="(min-width: 768px) 400px, 85vw"
                 className="object-cover opacity-60 group-hover:scale-110 transition-transform duration-1000"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-brand-dark-brown via-brand-dark-brown/40 to-transparent z-0"></div>

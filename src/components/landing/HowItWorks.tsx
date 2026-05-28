@@ -2,76 +2,98 @@
 
 import React from "react";
 import { motion } from "framer-motion";
+import { Mail, Sparkles, Sunrise } from "lucide-react";
+
+const steps = [
+  {
+    number: "01",
+    title: "Leave your email",
+    body: "Start with one simple step. Choose your language and head into the subscribe flow without filling everything twice.",
+    icon: Mail,
+    color: "bg-card-gold",
+  },
+  {
+    number: "02",
+    title: "Wake up to a miracle",
+    body: "Every morning, a short message lands in your inbox. Just enough truth, comfort, and perspective to steady the day ahead.",
+    icon: Sunrise,
+    color: "bg-card-green",
+  },
+  {
+    number: "03",
+    title: "Feel the shift",
+    body: "Not with hype. Not all at once. Just a quiet, real change in how you carry the day, the pressure, and the next step.",
+    icon: Sparkles,
+    color: "bg-card-red",
+  },
+];
 
 const HowItWorks = () => {
-    return (
-        <section className="py-32 bg-white">
-            <div className="max-w-7xl mx-auto px-6 text-center">
-                <motion.div 
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.8 }}
-                >
-                    <div className="flex items-center justify-center gap-4 mb-2">
-                        <div className="w-8 h-[1px] bg-brand-gold"></div>
-                        <span className="text-[10px] uppercase tracking-[0.2em] font-bold text-brand-gold">How it works</span>
-                    </div>
-                    <h2 className="text-5xl md:text-6xl font-serif text-brand-brown leading-tight mb-4">
-                        Three steps. One minute. Zero cost.
-                    </h2>
-                    <p className="text-brand-brown/50 mb-20">No app required. No long forms. No credit card.</p>
-                </motion.div>
+  return (
+    <section className="bg-white py-32">
+      <div className="mx-auto max-w-7xl px-6">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="mx-auto mb-20 max-w-3xl text-center"
+        >
+          <div className="mb-3 flex items-center justify-center gap-4">
+            <div className="h-px w-8 bg-brand-gold" />
+            <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-brand-gold">
+              How it works
+            </span>
+            <div className="h-px w-8 bg-brand-gold" />
+          </div>
+          <h2 className="text-5xl font-serif leading-tight text-brand-brown md:text-6xl">
+            Three steps. One gentle routine. Zero pressure.
+          </h2>
+          <p className="mt-5 text-brand-brown/52">
+            No app required. No long setup. Just one smoother path from curiosity
+            to a daily rhythm of hope.
+          </p>
+        </motion.div>
 
-                <div className="grid md:grid-cols-3 gap-12 relative">
-                    <div className="absolute top-1/4 left-0 right-0 h-[1px] bg-brand-brown/5 hidden md:block z-0"></div>
-                    
-                    <motion.div 
-                        initial={{ opacity: 0, y: 30 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.8, delay: 0.1 }}
-                        className="relative z-10 flex flex-col items-center"
-                    >
-                        <div className="w-20 h-20 rounded-full bg-card-gold text-white font-serif text-2xl flex items-center justify-center mb-10 shadow-lg border-8 border-white">1</div>
-                        <h4 className="font-bold text-xl text-brand-brown mb-4">Drop Your Email</h4>
-                        <p className="text-brand-brown/50 text-sm leading-relaxed max-w-[240px]">
-                            Just your email address. Choose Tagalog, Taglish, or English. That&apos;s literally it.
-                        </p>
-                    </motion.div>
+        <div className="relative grid gap-8 lg:grid-cols-3">
+          <div className="absolute left-[16.66%] right-[16.66%] top-20 hidden h-px bg-gradient-to-r from-brand-gold/0 via-brand-gold/45 to-brand-gold/0 lg:block" />
 
-                    <motion.div 
-                        initial={{ opacity: 0, y: 30 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.8, delay: 0.2 }}
-                        className="relative z-10 flex flex-col items-center"
-                    >
-                        <div className="w-20 h-20 rounded-full bg-card-green text-white font-serif text-2xl flex items-center justify-center mb-10 shadow-lg border-8 border-white">2</div>
-                        <h4 className="font-bold text-xl text-brand-brown mb-4">Wake Up to a Miracle</h4>
-                        <p className="text-brand-brown/50 text-sm leading-relaxed max-w-[240px]">
-                            Every morning, a new miracle lands in your inbox. Short, meaningful, and surprisingly relevant.
-                        </p>
-                    </motion.div>
+          {steps.map((step, index) => {
+            const Icon = step.icon;
 
-                    <motion.div 
-                        initial={{ opacity: 0, y: 30 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.8, delay: 0.3 }}
-                        className="relative z-10 flex flex-col items-center"
-                    >
-                        <div className="w-20 h-20 rounded-full bg-card-red text-white font-serif text-2xl flex items-center justify-center mb-10 shadow-lg border-8 border-white">3</div>
-                        <h4 className="font-bold text-xl text-brand-brown mb-4">Feel the Shift</h4>
-                        <p className="text-brand-brown/50 text-sm leading-relaxed max-w-[240px]">
-                            Not overnight. But slowly, something changes. The day feels lighter. People notice. You notice.
-                        </p>
-                    </motion.div>
+            return (
+              <motion.div
+                key={step.number}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.75, delay: index * 0.1 }}
+                className="relative rounded-[34px] border border-brand-brown/8 bg-background-cream p-8 shadow-sm"
+              >
+                <div className="mb-12 flex items-center justify-between">
+                  <span className="text-[11px] font-bold uppercase tracking-[0.26em] text-brand-brown/34">
+                    Step {step.number}
+                  </span>
+                  <div
+                    className={`flex h-14 w-14 items-center justify-center rounded-2xl text-white shadow-lg ${step.color}`}
+                  >
+                    <Icon className="h-6 w-6" />
+                  </div>
                 </div>
-            </div>
-        </section>
-    );
+
+                <h3 className="max-w-xs text-3xl font-serif leading-tight text-brand-brown">
+                  {step.title}
+                </h3>
+                <p className="mt-5 text-sm leading-relaxed text-brand-brown/58">
+                  {step.body}
+                </p>
+              </motion.div>
+            );
+          })}
+        </div>
+      </div>
+    </section>
+  );
 };
 
 export default HowItWorks;
-

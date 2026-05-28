@@ -4,6 +4,7 @@ import React from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
+import { useLandingCapture } from "@/components/landing/CaptureProvider";
 
 /**
  * SampleMiracles
@@ -35,6 +36,8 @@ const miracles = [
 ];
 
 const SampleMiracles = () => {
+    const { scrollToPrimaryCapture } = useLandingCapture();
+
     return (
         <section id="read-now" className="py-24 bg-background-cream">
             <div className="max-w-7xl mx-auto px-6">
@@ -71,6 +74,7 @@ const SampleMiracles = () => {
                                     src={miracle.image}
                                     alt={miracle.title}
                                     fill
+                                    sizes="(min-width: 768px) 33vw, 100vw"
                                     className="object-cover group-hover:scale-110 transition-transform duration-1000 opacity-80"
                                 />
                                 <div className="absolute inset-0 bg-gradient-to-b from-black/20 to-brand-dark-brown/40"></div>
@@ -92,7 +96,7 @@ const SampleMiracles = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.8, delay: 0.3 }}
-                    className="mt-20 flex justify-center"
+                    className="mt-20 flex flex-col items-center justify-center gap-4 sm:flex-row"
                 >
                     <a 
                         href="https://ph.jesus.net/miracles"
@@ -101,6 +105,13 @@ const SampleMiracles = () => {
                     >
                         Browse All 3,000+ Miracles <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
                     </a>
+                    <button
+                        type="button"
+                        onClick={() => scrollToPrimaryCapture("sample_miracles")}
+                        className="rounded-full border border-brand-brown/10 bg-white px-8 py-5 font-bold text-brand-brown transition-colors hover:border-brand-gold hover:text-brand-gold"
+                    >
+                        Subscribe After This
+                    </button>
                 </motion.div>
             </div>
         </section>
@@ -108,5 +119,4 @@ const SampleMiracles = () => {
 };
 
 export default SampleMiracles;
-
 
