@@ -1,29 +1,34 @@
-export const LANGUAGE_OPTIONS = [
-  { value: "tl", label: "Tagalog" },
-  { value: "en", label: "English" },
+export const CHANNEL_OPTIONS = [
+  { value: "email", label: "Email" },
+  { value: "messenger", label: "Messenger" },
+  { value: "preview", label: "Miracle Chat" },
 ] as const;
 
-export const DEFAULT_LANGUAGE = LANGUAGE_OPTIONS[0].value;
+export type PreferredChannel = (typeof CHANNEL_OPTIONS)[number]["value"];
+export type RedirectChannel = Exclude<PreferredChannel, "preview">;
+
+export const DEFAULT_CHANNEL: RedirectChannel = "email";
 
 const DEFAULT_SUBSCRIBE_URL =
   process.env.NEXT_PUBLIC_JESUS_NET_SUBSCRIBE_URL ||
-  "https://ph.jesus.net/a-miracle-every-day";
+  "https://ph.jesus.net/a-miracle-every-day?utm_source=himalaeveryday&utm_medium=cta&utm_campaign=tlen_amed_2026&utm_content=himalaeveryday_cta#subscribe";
+
+const MESSENGER_SIGNUP_URL =
+  process.env.NEXT_PUBLIC_MESSENGER_SIGNUP_URL ||
+  "https://www.m.me/352008124672499?text=Sign%20up";
 
 const DEFAULT_UTM = {
   utm_source: "himalaeveryday",
-  utm_medium: "onsite_handoff",
+  utm_medium: "cta",
   utm_campaign: "tlen_amed_2026",
+  utm_content: "himalaeveryday_cta",
 };
 
-export function isValidEmail(email: string) {
-  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-}
+export function buildHandoffUrl(preferredChannel: RedirectChannel = DEFAULT_CHANNEL) {
+  if (preferredChannel === "messenger") {
+    return MESSENGER_SIGNUP_URL;
+  }
 
-export function buildHandoffUrl(
-  email: string,
-  language: string,
-  source: string
-) {
   const targetUrl = new URL(DEFAULT_SUBSCRIBE_URL);
   const currentParams =
     typeof window !== "undefined"
@@ -34,11 +39,9 @@ export function buildHandoffUrl(
   const utmMedium = currentParams.get("utm_medium") || DEFAULT_UTM.utm_medium;
   const utmCampaign =
     currentParams.get("utm_campaign") || DEFAULT_UTM.utm_campaign;
-  const utmContent = currentParams.get("utm_content") || `${source}_capture`;
+  const utmContent =
+    currentParams.get("utm_content") || DEFAULT_UTM.utm_content;
 
-  targetUrl.searchParams.set("email", email.trim());
-  targetUrl.searchParams.set("lang", language);
-  targetUrl.searchParams.set("language", language);
   targetUrl.searchParams.set("utm_source", utmSource);
   targetUrl.searchParams.set("utm_medium", utmMedium);
   targetUrl.searchParams.set("utm_campaign", utmCampaign);

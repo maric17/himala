@@ -33,7 +33,7 @@ const FinalCTA = () => {
           </h2>
 
           <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-white/62">
-            One email. That&apos;s the only thing between you and a daily
+            One tap. That&apos;s the only thing between you and a daily
             reminder that life can be lighter, steadier, and more hopeful.
           </p>
 

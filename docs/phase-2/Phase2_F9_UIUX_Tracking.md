@@ -3,7 +3,7 @@
 This document specifies the sticky floating CTA on mobile, dead link fixes, and image performance optimizations for **F9: UI/UX Refinements**.
 
 > [!NOTE]
-> GA4 custom event tracking is **not in scope** for Phase 2 SOW. The existing `G-C5NXD7WFKS` script tag from Phase 1 is left untouched but no new custom events or funnel configurations are added.
+> The project now uses GA4 for aggregate funnel analytics and Payload CMS for first-party operational events that need admin review or follow-up.
 
 ---
 
@@ -12,6 +12,8 @@ Polish visual pathways to elevate trust and conversion across three focused area
 * **Sticky mobile CTA**: Ensure a floating entry bar is always one tap away as users scroll the long vertical page.
 * **Link cleanup**: Repair dead navigation anchors in the Header.
 * **Image optimization**: Ensure all static assets use Next.js `<Image>` with lazy loading and correct sizing.
+
+With Payload CMS, F9 can also expose editable site settings and first-party operational events while GA4 remains the aggregate analytics tool.
 
 ---
 
@@ -124,3 +126,20 @@ Review all landing section components for the following:
 4. Click the float button → page animates back to the top Hero form.
 5. Click the **"Other Languages"** link in the Header → it must navigate to a valid URL (not `#`).
 6. Run **Chrome Lighthouse** on the landing page → Target a Performance score of **90+** with no "oversized images" warnings.
+
+## Payload CMS Integration
+
+Recommended Payload-managed settings and events:
+
+- `jesusNetSubscribeUrl`
+- `otherLanguagesUrl`
+- `enableStickyCTA`
+- `enableSmsCapture`
+- `enableMessengerCapture`
+- CTA label variants.
+- First-party events such as `cta_clicked`, `handoff_started`, `handoff_success`, `miracle_shared`, and `sms_opt_in_started`.
+
+Recommended split:
+
+- Use GA4 for aggregate funnel reporting.
+- Use Payload `events` for operational events that need follow-up, export, or admin review.

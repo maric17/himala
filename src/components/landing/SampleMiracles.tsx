@@ -4,39 +4,21 @@ import React from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
+import MiracleShareButton from "@/components/landing/MiracleShareButton";
 import { useLandingCapture } from "@/components/landing/CaptureProvider";
+import { toSampleMiraclePreviews } from "@/lib/miracle-card-adapters";
+import { miracleContent } from "@/lib/miracle-content";
+import type { JesusNetMiracleCard } from "@/lib/jesusnet-miracles";
+import type { SampleMiraclePreview } from "@/lib/miracle-card-adapters";
 
-/**
- * SampleMiracles
- * A static grid featuring 3 top miracle stories to drive engagement before the final CTA.
- */
+type SampleMiraclesProps = {
+    cards?: JesusNetMiracleCard[];
+};
 
-const miracles = [
-    { 
-        date: "MAR 26", 
-        image: "/images/churches/11a2f2b0-b80c-49ef-9def-feb61d488095___media_library_original_420_675.webp", 
-        title: "He's been thinking about YOU this whole time!", 
-        text: "A reminder of God's constant presence and love for you.",
-        link: "https://ph.jesus.net/miracles/hes-been-thinking-about-you-this-whole-time"
-    },
-    { 
-        date: "MAR 25", 
-        image: "/images/churches/36c813cf-8199-4d41-83f8-a98ce3d32589___media_library_original_420_675.webp", 
-        title: "Alam mo ba ang mga sugat na tinanggap ni Jesus?", 
-        text: "Reflecting on the sacrifice that changed everything.",
-        link: "https://ph.jesus.net/miracles/alam-mo-ba-ang-mga-sugat-na-tinanggap-ni-jesus"
-    },
-    { 
-        date: "MAR 24", 
-        image: "/images/churches/354f496c-4b8d-46aa-b832-81a5feeba8d4___media_library_original_420_675.webp", 
-        title: "Alam mo ba ang pinagdaanan ni Jesus?", 
-        text: "A journey through the path that leads to hope.",
-        link: "https://ph.jesus.net/miracles/alam-mo-ba-ang-pinagdaanan-ni-jesus"
-    }
-];
-
-const SampleMiracles = () => {
+const SampleMiracles = ({ cards = [] }: SampleMiraclesProps) => {
     const { scrollToPrimaryCapture } = useLandingCapture();
+    const sampleMiracles: SampleMiraclePreview[] =
+        cards.length > 0 ? toSampleMiraclePreviews(cards) : miracleContent;
 
     return (
         <section id="read-now" className="py-24 bg-background-cream">
@@ -58,16 +40,14 @@ const SampleMiracles = () => {
                 </motion.div>
 
                 <div className="grid md:grid-cols-3 gap-8">
-                    {miracles.map((miracle, i) => (
-                        <motion.a 
-                            key={i} 
-                            href={miracle.link}
-                            rel="noopener noreferrer"
+                    {sampleMiracles.map((miracle, i) => (
+                        <motion.article
+                            key={miracle.id}
                             initial={{ opacity: 0, y: 30 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.8, delay: i * 0.1 }}
-                            className="bg-white rounded-[40px] overflow-hidden shadow-sm border border-brand-brown/5 group cursor-pointer hover:shadow-2xl transition-all"
+                            className="group overflow-hidden rounded-[40px] border border-brand-brown/5 bg-white shadow-sm transition-all hover:shadow-2xl"
                         >
                             <div className="h-48 relative overflow-hidden">
                                 <Image 
@@ -82,12 +62,24 @@ const SampleMiracles = () => {
                             </div>
                             <div className="p-8">
                                 <h3 className="font-serif text-xl font-bold mb-4 group-hover:text-brand-gold transition-colors italic leading-relaxed text-brand-dark-brown">{miracle.title}</h3>
-                                <p className="text-sm text-brand-brown/50 leading-relaxed mb-8 italic">{miracle.text}</p>
-                                <div className="flex items-center gap-2 text-brand-gold font-bold text-xs uppercase tracking-widest group-hover:gap-4 transition-all duration-300">
-                                    Read this miracle <ArrowRight size={14} />
+                                <p className="text-sm text-brand-brown/50 leading-relaxed mb-8 italic">{miracle.excerpt}</p>
+                                <div className="flex flex-col gap-3">
+                                    <a
+                                        href={miracle.originalUrl}
+                                        rel="noopener noreferrer"
+                                        className="flex items-center gap-2 text-brand-gold font-bold text-xs uppercase tracking-widest transition-all duration-300 hover:gap-4"
+                                    >
+                                        Read this miracle <ArrowRight size={14} />
+                                    </a>
+                                    <MiracleShareButton
+                                        miracleId={miracle.id}
+                                        title={miracle.title}
+                                        text={miracle.shareText}
+                                        shareUrl={miracle.shareUrl}
+                                    />
                                 </div>
                             </div>
-                        </motion.a>
+                        </motion.article>
                     ))}
                 </div>
 
@@ -119,4 +111,3 @@ const SampleMiracles = () => {
 };
 
 export default SampleMiracles;
-

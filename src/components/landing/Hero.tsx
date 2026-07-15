@@ -75,17 +75,16 @@ const Hero = () => {
               Start here
             </p>
             <h2 className="max-w-md text-3xl font-serif leading-tight text-white">
-              Enter your email and we&apos;ll take you straight to the sign-up.
+              Choose where to sign up and we&apos;ll take you straight there.
             </h2>
             <p className="mt-3 max-w-md text-sm leading-relaxed text-white/58">
-              Pick your language, tap once, and continue with your details
-              already carried forward.
+              Tap once to continue through Jesus.net or Messenger.
             </p>
 
             <CaptureForm
               source="hero"
               submitLabel="Get My Daily Miracle"
-              helperText="You will continue to the Jesus.net subscribe form with your email and language pre-filled."
+              helperText="You will continue directly to the sign-up destination you choose."
               className="mt-6"
             />
           </div>

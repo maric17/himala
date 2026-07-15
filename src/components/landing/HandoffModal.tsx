@@ -4,11 +4,13 @@ import React, { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { CheckCircle2, Loader2, X } from "lucide-react";
 import { trackEvent } from "@/lib/analytics";
-import { buildHandoffUrl } from "@/lib/handoff";
+import { buildHandoffUrl, type PreferredChannel } from "@/lib/handoff";
+import { openMiracleChat } from "@/lib/miracle-chat";
 
 interface HandoffModalProps {
   email: string;
   language: string;
+  preferredChannel: PreferredChannel;
   source: string;
   onClose: () => void;
 }
@@ -18,6 +20,7 @@ type HandoffState = "sending" | "success";
 export default function HandoffModal({
   email,
   language,
+  preferredChannel,
   source,
   onClose,
 }: HandoffModalProps) {
@@ -34,14 +37,21 @@ export default function HandoffModal({
     }, 1400);
 
     const redirectTimeout = setTimeout(() => {
-      window.location.assign(buildHandoffUrl(email, language, source));
+      if (preferredChannel === "preview") {
+        openMiracleChat();
+        return;
+      }
+
+      window.location.assign(
+        buildHandoffUrl(preferredChannel)
+      );
     }, 2400);
 
     return () => {
       clearTimeout(successTimeout);
       clearTimeout(redirectTimeout);
     };
-  }, [email, language, source]);
+  }, [email, language, preferredChannel, source]);
 
   const copy =
     language === "tl"
@@ -52,7 +62,9 @@ export default function HandoffModal({
             "Ikinokonekta ka namin sa iyong daily miracle sign-up.",
           successTitle: "Handa na ang iyong miracle",
           successBody:
-            "Ililipat ka namin sa subscribe form na may pre-filled na details mo.",
+            preferredChannel === "messenger"
+              ? "Ililipat ka namin sa Messenger para matapos ang sign-up."
+              : "Ililipat ka namin sa subscribe form.",
           closeLabel: "Isara",
         }
       : {
@@ -62,7 +74,9 @@ export default function HandoffModal({
             "We are connecting you to your daily miracle sign-up.",
           successTitle: "Your miracle is ready",
           successBody:
-            "We are taking you to the subscribe form with your details pre-filled.",
+            preferredChannel === "messenger"
+              ? "We are taking you to Messenger to finish signing up."
+              : "We are taking you to the subscribe form.",
           closeLabel: "Close",
         };
 

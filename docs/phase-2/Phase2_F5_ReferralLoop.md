@@ -2,6 +2,8 @@
 
 This document specifies the sharing mechanism on miracle cards and the design/routing of the dynamic **"A friend sent you this" landing page** for **F5: Referral / "Share a Miracle" Loop**.
 
+Payload CMS is now the target source of truth for miracle content, referral metadata, and referral conversion records. The current implementation uses a static content file as a launchable fallback until Payload is wired.
+
 ---
 
 ## 🎯 Objective
@@ -11,15 +13,104 @@ Establish an organic viral growth loop by letting readers share specific daily m
 
 ## 📁 Files to Create / Modify
 
-1. **[NEW]** [page.tsx](file:///c:/RepoOutside/himala/src/app/share/%5BmiracleId%5D/page.tsx) — Dynamic shared miracle landing page.
-2. **[MODIFY]** [SampleMiracles.tsx](file:///c:/RepoOutside/himala/src/components/landing/SampleMiracles.tsx) — Add sharing buttons directly on the cards.
+1. **[NEW]** `src/lib/miracle-content.ts` — Shared static source of referral-ready miracle content.
+2. **[NEW]** `src/components/landing/MiracleShareButton.tsx` — Native share/copy-link button with GA event tracking.
+3. **[NEW]** `src/components/landing/ReferralPageTracker.tsx` — Client-side GA tracking for referral page views.
+4. **[NEW]** `src/app/(frontend)/share/[miracleId]/page.tsx` — Dynamic shared miracle landing page.
+5. **[MODIFY]** `src/components/landing/SampleMiracles.tsx` — Uses shared miracle content and displays share buttons directly on the cards.
 
 ---
 
+## ✅ Implementation Status
+
+Implemented on 2026-05-30. UI is present as share buttons on the homepage sample miracle cards and as dynamic `/share/[miracleId]` landing pages. It is not currently a separate top-level navigation page.
+
+### Current Referral Content
+
+The first F5 content set is currently stored in `src/lib/miracle-content.ts` and should later migrate into the Payload `miracles` collection.
+
+| Miracle ID | Title | Share URL |
+| --- | --- | --- |
+| `hes-been-thinking-about-you` | He's been thinking about YOU this whole time! | `/share/hes-been-thinking-about-you` |
+| `alam-mo-ba-ang-mga-sugat-ni-jesus` | Alam mo ba ang mga sugat na tinanggap ni Jesus? | `/share/alam-mo-ba-ang-mga-sugat-ni-jesus` |
+| `alam-mo-ba-ang-pinagdaanan-ni-jesus` | Alam mo ba ang pinagdaanan ni Jesus? | `/share/alam-mo-ba-ang-pinagdaanan-ni-jesus` |
+
+Each content item includes:
+
+- `id`
+- `date`
+- `image`
+- `title`
+- `excerpt`
+- `body`
+- `scripture`
+- `originalUrl`
+- `shareText`
+
+### Current Behavior
+
+- Homepage sample miracle cards now render from `miracleContent`.
+- Each card keeps a "Read this miracle" link to the original `ph.jesus.net` miracle page.
+- Each card includes a `MiracleShareButton`.
+- On supported mobile/desktop browsers, sharing uses the native Web Share API.
+- On browsers without native share support, sharing falls back to copying `/share/[miracleId]` to the clipboard.
+- If clipboard access is unavailable, the user gets a prompt containing the share URL.
+- The referral landing page shows the selected miracle image, title, body, scripture, original Jesus.net link, share button, and inline capture form.
+- The referral capture form uses `source="friend_referral"` and continues through the existing F1 handoff flow.
+- Target state: `/share/[miracleId]` loads the miracle by Payload slug and records referral activity in Payload.
+
+### Analytics Events
+
+- `miracle_shared`
+  - Fired from `MiracleShareButton`.
+  - Includes `method`, `content_type`, and `item_id`.
+- `referral_page_viewed`
+  - Fired from `ReferralPageTracker`.
+  - Includes `content_type` and `item_id`.
+- Referral capture submits use the existing F1 `cta_clicked`, `handoff_started`, and `handoff_success` events with `cta_location: friend_referral`.
+
+### Where to See It in the UI
+
+- Homepage section: `Read Now` / sample miracles.
+- UI entry point: the `Share` button on each miracle card.
+- Shared destination: `/share/[miracleId]`.
+- Current client-facing status: UI is implemented but still pending content approval, manual share QA, analytics QA, and Payload migration.
+
+Screenshots:
+
+- Homepage share buttons: `docs/phase-2/screenshots/phase2-f5-share-buttons-ui-2026-06-05.png`
+- Referral landing page: `docs/phase-2/screenshots/phase2-f5-referral-page-2026-06-05.png`
+
+### Payload Collections
+
+Recommended collections:
+
+- `miracles`: title, slug, body, excerpt, scripture, image, original URL, share text, language, status.
+- `referrals`: miracle, share method, landing path, referrer lead, converted lead, timestamps, UTM values.
+- `events`: `miracle_shared`, `referral_page_viewed`, `referral_handoff_started`, `referral_converted`.
+
+Migration path:
+
+1. Seed current static miracles into Payload.
+2. Update homepage cards to fetch published miracles from Payload.
+3. Update `/share/[miracleId]` to load by Payload slug.
+4. Write share and referral conversion events to Payload server-side.
+5. Keep static file fallback for build-time resilience if needed.
+
+### Verification Status
+
+- `npm run lint`: passed on 2026-05-30.
+- `npm exec tsc -- --noEmit`: passed on 2026-05-30.
+- `npm run build`: latest 2026-05-30 attempt hung during the Turbopack optimized production build and was stopped. Needs a clean re-run.
+- Manual mobile/desktop share QA: pending.
+- Manual referral capture and analytics QA: pending.
+
 ## 🛠️ Step-by-Step Code Specifications
 
-### 1. Dynamic Shared Page (`src/app/share/[miracleId]/page.tsx`)
-Create a dynamic App Router route. Since there is no database, the miracle details are rendered using a shared static array of miracles (or fetched from an external API using `miracleId`).
+> Note: The original implementation outline below is retained as reference. The actual implementation uses the files and behavior listed above.
+
+### 1. Dynamic Shared Page (`src/app/(frontend)/share/[miracleId]/page.tsx`)
+Create a dynamic App Router route. The current implementation renders from a shared static array; the target implementation should fetch the miracle from Payload by slug.
 
 ```tsx
 import React from "react";

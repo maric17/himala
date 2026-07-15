@@ -1,13 +1,12 @@
 "use client";
 
-import React, { createContext, useContext, useState } from "react";
-import HandoffModal from "@/components/landing/HandoffModal";
+import React, { createContext, useContext } from "react";
 import { trackEvent } from "@/lib/analytics";
+import type { PreferredChannel } from "@/lib/handoff";
 
 interface HandoffPayload {
-  email: string;
-  language: string;
   source: string;
+  preferredChannel: PreferredChannel;
 }
 
 interface CaptureContextValue {
@@ -22,19 +21,15 @@ export function LandingCaptureProvider({
 }: {
   children: React.ReactNode;
 }) {
-  const [handoff, setHandoff] = useState<HandoffPayload | null>(null);
-
   const beginHandoff = (payload: HandoffPayload) => {
     trackEvent("cta_clicked", {
       cta_location: payload.source,
-      selected_language: payload.language,
+      preferred_channel: payload.preferredChannel,
     });
     trackEvent("handoff_started", {
       cta_location: payload.source,
-      selected_language: payload.language,
-      email_captured: true,
+      preferred_channel: payload.preferredChannel,
     });
-    setHandoff(payload);
   };
 
   const scrollToPrimaryCapture = (source: string) => {
@@ -47,9 +42,9 @@ export function LandingCaptureProvider({
     captureTarget?.scrollIntoView({ behavior: "smooth", block: "center" });
 
     window.setTimeout(() => {
-      const emailInput = document.getElementById("hero-email");
-      if (emailInput instanceof HTMLInputElement) {
-        emailInput.focus();
+      const submitButton = document.getElementById("hero-submit");
+      if (submitButton instanceof HTMLButtonElement) {
+        submitButton.focus();
       }
     }, 450);
   };
@@ -57,15 +52,6 @@ export function LandingCaptureProvider({
   return (
     <CaptureContext.Provider value={{ beginHandoff, scrollToPrimaryCapture }}>
       {children}
-      {handoff ? (
-        <HandoffModal
-          key={`${handoff.email}-${handoff.language}-${handoff.source}`}
-          email={handoff.email}
-          language={handoff.language}
-          source={handoff.source}
-          onClose={() => setHandoff(null)}
-        />
-      ) : null}
     </CaptureContext.Provider>
   );
 }

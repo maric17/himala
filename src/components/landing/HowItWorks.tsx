@@ -2,14 +2,14 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { Mail, Sparkles, Sunrise } from "lucide-react";
+import { MousePointerClick, Sparkles, Sunrise } from "lucide-react";
 
 const steps = [
   {
     number: "01",
-    title: "Leave your email",
-    body: "Start with one simple step. Choose your language and head into the subscribe flow without filling everything twice.",
-    icon: Mail,
+    title: "Choose a channel",
+    body: "Start with one tap. Pick email or Messenger and continue straight to the sign-up destination.",
+    icon: MousePointerClick,
     color: "bg-card-gold",
   },
   {

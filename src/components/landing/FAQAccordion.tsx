@@ -23,7 +23,7 @@ const faqs = [
   {
     question: "Can I choose Tagalog or English?",
     answer:
-      "Yes. The capture flow lets you choose your preferred language before you continue to the subscribe form.",
+      "Yes. Continue to the sign-up destination, then choose the language option available there.",
   },
   {
     question: "Do I need to install an app first?",

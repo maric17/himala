@@ -7,12 +7,14 @@ This document specifies the exact visual logic, simulated ticker mechanics, and 
 ## 🎯 Objective
 Establish high social proof and active community presence on the landing page by displaying a **simulated** ticker of reading events from different regions in the Philippines, paired with a gently incrementing daily read counter. **No external API is used — all data is seeded locally in the component using random selection from curated static arrays.** This keeps the page fast, offline-resilient, and zero-cost to operate.
 
+With Payload CMS, the feed can remain simulated as a fallback while optionally showing admin-approved live-feed events, reader milestones, or referral activity from Payload.
+
 ---
 
 ## 📁 Files to Create / Modify
 
 1. **[NEW]** [LiveFeed.tsx](file:///c:/RepoOutside/himala/src/components/landing/LiveFeed.tsx) — The dynamic ticker and counter bar.
-2. **[MODIFY]** [page.tsx](file:///c:/RepoOutside/himala/src/app/page.tsx) — Integrate the feed block directly beneath the Hero.
+2. **[MODIFY]** `src/app/(frontend)/page.tsx` — Integrate the feed block directly beneath the Hero.
 
 ---
 
@@ -134,3 +136,20 @@ export default function LiveFeed() {
 2. Watch the counter for **15 seconds**.
 3. **Expected Behavior 1**: The total read counter (e.g. `12,480`) should tick up in small steps (e.g., `+1`, `+2`) every few seconds.
 4. **Expected Behavior 2**: The live activity event marquee should smoothly animate out upwards, and transition in a new region (e.g. *Davao*) and action phrase, complete with translations.
+
+## Payload CMS Integration
+
+Recommended Payload-managed feed data:
+
+- Approved city/region activity items.
+- Pinned social proof messages.
+- Daily read counter overrides.
+- Published miracle titles for feed phrases.
+- Referral milestones such as "Someone shared hope with a friend."
+
+Recommended behavior:
+
+1. Fetch recent approved feed events from Payload.
+2. Merge them with simulated fallback items.
+3. Keep the component fast and resilient if Payload is unavailable.
+4. Store major first-party feed events in `events` only when they need admin reporting.

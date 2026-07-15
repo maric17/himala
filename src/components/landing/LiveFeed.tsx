@@ -3,26 +3,188 @@
 import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 
-const feedItems = [
-  "Someone in Quezon City just opened today's miracle",
-  "A new reader in Davao signed up this morning",
-  "Someone in Cebu shared a miracle with a friend",
-  "A family in Bacolod started the day with a read",
-  "A reader in Iloilo came back for today's message",
-  "Someone in Cagayan de Oro saved a miracle to revisit later",
-  "A new subscriber in Baguio joined before breakfast",
-  "A reader in General Santos opened today's reflection",
+type FeedItem = {
+  city: string;
+  action: string;
+  time: string;
+  tone: "gold" | "green" | "brown";
+  width: string;
+};
+
+const cities = [
+  "Quezon City",
+  "Cebu City",
+  "Davao",
+  "Iloilo",
+  "Bacolod",
+  "Cagayan de Oro",
+  "Baguio",
+  "General Santos",
+  "Makati",
+  "Zamboanga",
+  "Tagbilaran",
+  "Naga",
+  "Tacloban",
+  "San Fernando",
+  "Antipolo",
+  "Puerto Princesa",
+  "Manila",
+  "Pasig",
+  "Mandaluyong",
+  "Paranaque",
+  "Las Pinas",
+  "Marikina",
+  "Valenzuela",
+  "Caloocan",
+  "Muntinlupa",
+  "Pasay",
+  "Taguig",
+  "Malolos",
+  "Meycauayan",
+  "Angeles",
+  "Tarlac City",
+  "Dagupan",
+  "Laoag",
+  "Tuguegarao",
+  "Batangas City",
+  "Lipa",
+  "Lucena",
+  "Calamba",
+  "Santa Rosa",
+  "Legazpi",
+  "Roxas City",
+  "Dumaguete",
+  "Mandaue",
+  "Lapu-Lapu",
+  "Ormoc",
+  "Butuan",
+  "Surigao City",
+  "Dipolog",
+  "Koronadal",
+  "Kidapawan",
+  "Cotabato City",
+  "Pagadian",
+  "Malaybalay",
+  "Digos",
+  "Panabo",
 ];
+
+const actions = [
+  "opened today's reflection",
+  "started a 3-minute read",
+  "shared a miracle with a friend",
+  "came back for the morning message",
+  "saved a reflection for later",
+  "joined the daily email list",
+  "finished today's miracle",
+  "read in Tagalog",
+  "read in English",
+  "continued from yesterday's message",
+];
+
+const times = [
+  "just now",
+  "1m ago",
+  "3m ago",
+  "5m ago",
+  "8m ago",
+  "12m ago",
+  "17m ago",
+  "24m ago",
+  "31m ago",
+  "42m ago",
+  "this morning",
+  "before breakfast",
+];
+
+const tones: FeedItem["tone"][] = ["gold", "green", "brown"];
+const widths = ["w-[15rem]", "w-[17rem]", "w-[19rem]", "w-[21rem]"];
+
+const toneClasses: Record<FeedItem["tone"], string> = {
+  gold: "bg-brand-gold shadow-[0_0_0_6px_rgba(220,162,81,0.14)]",
+  green: "bg-card-green shadow-[0_0_0_6px_rgba(64,93,64,0.12)]",
+  brown: "bg-brand-brown shadow-[0_0_0_6px_rgba(42,30,23,0.1)]",
+};
+
+const fallbackFeed: FeedItem[] = [
+  {
+    city: "Quezon City",
+    action: "opened today's reflection",
+    time: "just now",
+    tone: "gold",
+    width: "w-[19rem]",
+  },
+  {
+    city: "Cebu City",
+    action: "joined the daily email list",
+    time: "3m ago",
+    tone: "green",
+    width: "w-[17rem]",
+  },
+  {
+    city: "Davao",
+    action: "shared a miracle with a friend",
+    time: "8m ago",
+    tone: "brown",
+    width: "w-[21rem]",
+  },
+];
+
+const randomItem = <T,>(items: T[]) =>
+  items[Math.floor(Math.random() * items.length)];
+
+const randomFeedDuration = () => 58 + Math.floor(Math.random() * 21);
+
+const buildFeedItems = (count = 18): FeedItem[] => {
+  const usedCities = new Set<string>();
+
+  return Array.from({ length: count }, () => {
+    let city = randomItem(cities);
+
+    if (usedCities.size < cities.length) {
+      while (usedCities.has(city)) {
+        city = randomItem(cities);
+      }
+    }
+
+    usedCities.add(city);
+
+    return {
+      city,
+      action: randomItem(actions),
+      time: randomItem(times),
+      tone: randomItem(tones),
+      width: randomItem(widths),
+    };
+  });
+};
 
 export default function LiveFeed() {
   const [dailyReads, setDailyReads] = useState(12480);
+  const [feedItems, setFeedItems] = useState<FeedItem[]>(fallbackFeed);
+  const [feedDuration, setFeedDuration] = useState(64);
 
   useEffect(() => {
+    const initialRandomize = window.setTimeout(() => {
+      setDailyReads(12480 + Math.floor(Math.random() * 320));
+      setFeedItems(buildFeedItems());
+      setFeedDuration(randomFeedDuration());
+    }, 0);
+
     const interval = window.setInterval(() => {
       setDailyReads((current) => current + Math.floor(Math.random() * 4 + 1));
-    }, 2800);
+    }, 2400 + Math.floor(Math.random() * 1800));
 
-    return () => window.clearInterval(interval);
+    const feedInterval = window.setInterval(() => {
+      setFeedItems(buildFeedItems());
+      setFeedDuration(randomFeedDuration());
+    }, 28000);
+
+    return () => {
+      window.clearTimeout(initialRandomize);
+      window.clearInterval(interval);
+      window.clearInterval(feedInterval);
+    };
   }, []);
 
   return (
@@ -67,14 +229,27 @@ export default function LiveFeed() {
             </div>
 
             <div className="overflow-hidden py-5">
-              <div className="animate-feed flex min-w-max gap-4 px-5">
+              <div
+                className="animate-feed flex min-w-max gap-4 px-5"
+                style={{ animationDuration: `${feedDuration}s` }}
+              >
                 {[...feedItems, ...feedItems].map((item, index) => (
                   <div
-                    key={`${item}-${index}`}
-                    className="flex items-center gap-3 rounded-full border border-brand-brown/8 bg-white px-4 py-3 text-sm text-brand-brown/78 shadow-sm"
+                    key={`${item.city}-${item.action}-${item.time}-${index}`}
+                    className={`flex ${item.width} shrink-0 items-center gap-3 rounded-full border border-brand-brown/8 bg-white px-4 py-3 text-sm text-brand-brown/78 shadow-sm`}
                   >
-                    <span className="h-2.5 w-2.5 rounded-full bg-brand-gold shadow-[0_0_0_6px_rgba(220,162,81,0.14)]" />
-                    <span>{item}</span>
+                    <span
+                      className={`h-2.5 w-2.5 shrink-0 rounded-full ${toneClasses[item.tone]}`}
+                    />
+                    <span className="min-w-0">
+                      <span className="font-semibold text-brand-brown">
+                        {item.city}
+                      </span>{" "}
+                      {item.action}
+                      <span className="ml-2 whitespace-nowrap text-brand-brown/38">
+                        {item.time}
+                      </span>
+                    </span>
                   </div>
                 ))}
               </div>

@@ -7,6 +7,8 @@ This document specifies the structural copy upgrades, CTA optimization, a 3-step
 ## 🎯 Objective
 Make the landing page visually premium, place primary CTAs above the fold on mobile, simplify the onboarding description, and address questions using a responsive FAQ.
 
+With Payload CMS, editable landing content can later move out of code and into admin-managed collections. The static implementation remains valid as a fallback.
+
 ---
 
 ## 📁 Files to Create / Modify
@@ -14,7 +16,7 @@ Make the landing page visually premium, place primary CTAs above the fold on mob
 1. **[NEW]** [FaqAccordion.tsx](file:///c:/RepoOutside/himala/src/components/landing/FaqAccordion.tsx) — Responsive FAQ Accordion block.
 2. **[MODIFY]** [Hero.tsx](file:///c:/RepoOutside/himala/src/components/landing/Hero.tsx) — Optimize layouts to fit the input element above the fold.
 3. **[MODIFY]** [HowItWorks.tsx](file:///c:/RepoOutside/himala/src/components/landing/HowItWorks.tsx) — Format as a 3-step visual narrative.
-4. **[MODIFY]** [page.tsx](file:///c:/RepoOutside/himala/src/app/page.tsx) — Insert `FaqAccordion` above the footer.
+4. **[MODIFY]** `src/app/(frontend)/page.tsx` — Insert `FaqAccordion` above the footer.
 
 ---
 
@@ -116,3 +118,22 @@ Create a responsive React State accordion inside `src/components/landing/FaqAcco
 1. Shrink browser to Chrome DevTools **iPhone 12 Pro** simulation.
 2. Verify that the Hero text, email field, and primary button fit completely within the vertical bounds of the 844px high layout without initial scrolling.
 3. Scroll down and verify that the 3-step cards and FAQs expand/collapse with fluid ease.
+
+## Payload CMS Integration
+
+Recommended Payload-managed content:
+
+- Hero eyebrow, headline, body, helper text, and CTA labels.
+- FAQ entries and ordering.
+- How-it-works step titles, descriptions, and icons.
+- Testimonials and trust stats.
+- Language-specific copy variants.
+- Landing-page experiments and CTA variants.
+
+Recommended collections:
+
+- `settings`
+- `faqs`
+- `testimonials`
+- `landingSections`
+- `events`

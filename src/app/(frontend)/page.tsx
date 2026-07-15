@@ -1,5 +1,3 @@
-"use client";
-
 import React from "react";
 import { LandingCaptureProvider } from "@/components/landing/CaptureProvider";
 import FAQAccordion from "@/components/landing/FAQAccordion";
@@ -16,19 +14,22 @@ import HumansBehind from "@/components/landing/HumansBehind";
 import TheApp from "@/components/landing/TheApp";
 import FinalCTA from "@/components/landing/FinalCTA";
 import StickyCTA from "@/components/landing/StickyCTA";
+import { fetchJesusNetMiracleCards } from "@/lib/jesusnet-miracles";
 
-export default function Home() {
+export default async function Home() {
+  const storyCards = await fetchJesusNetMiracleCards();
+
   return (
     <LandingCaptureProvider>
       <main className="min-h-screen bg-background-cream">
         <Hero />
         <LiveFeed />
         <Marquee />
-        <CardCarouselSection />
+        <CardCarouselSection cards={storyCards} />
         <StatsRibbon />
         <DailyMiracleInfo />
         <Testimonials />
-        <SampleMiracles />
+        <SampleMiracles cards={storyCards} />
         <HowItWorks />
         <HumansBehind />
         <TheApp />
