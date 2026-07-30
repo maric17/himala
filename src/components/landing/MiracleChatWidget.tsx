@@ -163,9 +163,6 @@ export default function MiracleChatWidget() {
                 <p className="text-sm font-bold text-brand-dark-brown">
                   Miracle
                 </p>
-                <p className="truncate text-xs text-brand-dark-brown/62">
-                  Himala Every Day chat
-                </p>
               </div>
               <button
                 type="button"
