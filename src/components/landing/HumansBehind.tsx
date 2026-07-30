@@ -44,6 +44,7 @@ const HumansBehind = () => {
                                 src="/images/churches/Yen-Writer.webp" 
                                 alt="Yen Cabag" 
                                 fill
+                                sizes="80px"
                                 className="object-cover"
                             />
                         </div>
@@ -70,6 +71,7 @@ const HumansBehind = () => {
                                 src="/images/churches/mark-Writer.webp" 
                                 alt="Mark Cabag" 
                                 fill
+                                sizes="80px"
                                 className="object-cover"
                             />
                         </div>

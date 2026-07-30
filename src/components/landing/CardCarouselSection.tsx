@@ -5,8 +5,41 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import useEmblaCarousel from "embla-carousel-react";
 import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
+import type { JesusNetMiracleCard } from "@/lib/jesusnet-miracles";
 
-const CardCarouselSection = () => {
+type CardCarouselSectionProps = {
+  cards?: JesusNetMiracleCard[];
+};
+
+const fallbackMiracleCards: JesusNetMiracleCard[] = [
+  {
+    title: "He's been thinking about YOU this whole time!",
+    description: "A reminder of God's constant presence and love for you.",
+    url: "https://ph.jesus.net/miracles/hes-been-thinking-about-you-this-whole-time",
+    image: "/images/churches/11a2f2b0-b80c-49ef-9def-feb61d488095___media_library_original_420_675.webp",
+  },
+  {
+    title: "Alam mo ba ang mga sugat na tinanggap ni Jesus?",
+    description: "Reflecting on the sacrifice that changed everything.",
+    url: "https://ph.jesus.net/miracles/alam-mo-ba-ang-mga-sugat-na-tinanggap-ni-jesus",
+    image: "/images/churches/36c813cf-8199-4d41-83f8-a98ce3d32589___media_library_original_420_675.webp",
+  },
+  {
+    title: "Alam mo ba ang pinagdaanan ni Jesus?",
+    description: "A journey through the path that leads to hope.",
+    url: "https://ph.jesus.net/miracles/alam-mo-ba-ang-pinagdaanan-ni-jesus",
+    image: "/images/churches/354f496c-4b8d-46aa-b832-81a5feeba8d4___media_library_original_420_675.webp",
+  },
+  {
+    title: "Bakit nga ba kailangan ang cross?",
+    description: "Understanding the profound necessity of the cross.",
+    url: "https://ph.jesus.net/miracles/bakit-nga-ba-kailangan-ang-cross",
+    image: "/images/churches/d82b5088-ca46-4d94-87db-f96166242ecf___media_library_original_420_675.webp",
+  },
+];
+
+const CardCarouselSection = ({ cards = [] }: CardCarouselSectionProps) => {
+  const miracleCards = cards.length > 0 ? cards : fallbackMiracleCards;
   const [emblaRef, emblaApi] = useEmblaCarousel({ 
     align: "start",
     loop: false,
@@ -81,97 +114,31 @@ const CardCarouselSection = () => {
       {/* Embla Viewport */}
       <div className="overflow-hidden px-6 pb-12" ref={emblaRef}>
         <div className="flex gap-6">
-          {/* Card 1 */}
-          <motion.div 
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="flex-[0_0_85vw] md:flex-[0_0_400px] h-[480px] bg-brand-dark-brown rounded-[40px] p-8 md:p-10 shrink-0 relative overflow-hidden flex flex-col justify-end text-white shadow-xl group border border-white/5"
-          >
-            <Image 
-                src="/images/churches/11a2f2b0-b80c-49ef-9def-feb61d488095___media_library_original_420_675.webp"
-                alt="He's been thinking about YOU"
-                fill
-                className="object-cover opacity-60 group-hover:scale-110 transition-transform duration-1000"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-brand-dark-brown via-brand-dark-brown/40 to-transparent z-0"></div>
-            
-            <div className="relative z-10">
-                <h3 className="text-3xl font-serif mb-4 leading-tight italic">He&apos;s been thinking about YOU this whole time!</h3>
-                <p className="text-white/60 text-sm leading-relaxed mb-8">A reminder of God&apos;s constant presence and love for you.</p>
-                <a href="https://ph.jesus.net/miracles/hes-been-thinking-about-you-this-whole-time"  rel="noopener noreferrer" className="flex items-center gap-2 text-brand-gold font-bold text-sm">Read miracle <ArrowRight size={14} /></a>
-            </div>
-          </motion.div>
-          
-          {/* Card 2 */}
-          <motion.div 
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            className="flex-[0_0_85vw] md:flex-[0_0_400px] h-[480px] bg-brand-dark-brown rounded-[40px] p-8 md:p-10 shrink-0 relative overflow-hidden flex flex-col justify-end text-white shadow-xl group border border-white/5"
-          >
-            <Image 
-                src="/images/churches/36c813cf-8199-4d41-83f8-a98ce3d32589___media_library_original_420_675.webp"
-                alt="Mga sugat na tinanggap ni Jesus"
-                fill
-                className="object-cover opacity-60 group-hover:scale-110 transition-transform duration-1000"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-brand-dark-brown via-brand-dark-brown/40 to-transparent z-0"></div>
-            
-            <div className="relative z-10">
-                <h3 className="text-3xl font-serif mb-4 leading-tight italic">Alam mo ba ang mga sugat na tinanggap ni Jesus?</h3>
-                <p className="text-white/60 text-sm leading-relaxed mb-8">Reflecting on the sacrifice that changed everything.</p>
-                <a href="https://ph.jesus.net/miracles/alam-mo-ba-ang-mga-sugat-na-tinanggap-ni-jesus"  rel="noopener noreferrer" className="flex items-center gap-2 text-brand-gold font-bold text-sm">Read miracle <ArrowRight size={14} /></a>
-            </div>
-          </motion.div>
-          
-          {/* Card 3 */}
-          <motion.div 
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="flex-[0_0_85vw] md:flex-[0_0_400px] h-[480px] bg-brand-dark-brown rounded-[40px] p-8 md:p-10 shrink-0 relative overflow-hidden flex flex-col justify-end text-white shadow-xl group border border-white/5"
-          >
-            <Image 
-                src="/images/churches/354f496c-4b8d-46aa-b832-81a5feeba8d4___media_library_original_420_675.webp"
-                alt="Pinagdaanan ni Jesus"
-                fill
-                className="object-cover opacity-60 group-hover:scale-110 transition-transform duration-1000"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-brand-dark-brown via-brand-dark-brown/40 to-transparent z-0"></div>
-            
-            <div className="relative z-10">
-                <h3 className="text-3xl font-serif mb-4 leading-tight italic">Alam mo ba ang pinagdaanan ni Jesus?</h3>
-                <p className="text-white/60 text-sm leading-relaxed mb-8">A journey through the path that leads to hope.</p>
-                <a href="https://ph.jesus.net/miracles/alam-mo-ba-ang-pinagdaanan-ni-jesus"  rel="noopener noreferrer" className="flex items-center gap-2 text-brand-gold font-bold text-sm">Read miracle <ArrowRight size={14} /></a>
-            </div>
-          </motion.div>
-
-          {/* Card 4 */}
-          <motion.div 
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-            className="flex-[0_0_85vw] md:flex-[0_0_400px] h-[480px] bg-brand-dark-brown rounded-[40px] p-8 md:p-10 shrink-0 relative overflow-hidden flex flex-col justify-end text-white shadow-xl group border border-white/5"
-          >
-            <Image 
-                src="/images/churches/d82b5088-ca46-4d94-87db-f96166242ecf___media_library_original_420_675.webp"
-                alt="Bakit kailangan ang cross"
-                fill
-                className="object-cover opacity-60 group-hover:scale-110 transition-transform duration-1000"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-brand-dark-brown via-brand-dark-brown/40 to-transparent z-0"></div>
-            
-            <div className="relative z-10">
-                <h3 className="text-3xl font-serif mb-4 leading-tight italic">Bakit nga ba kailangan ang cross?</h3>
-                <p className="text-white/60 text-sm leading-relaxed mb-8">Understanding the profound necessity of the cross.</p>
-                <a href="https://ph.jesus.net/miracles/bakit-nga-ba-kailangan-ang-cross"  rel="noopener noreferrer" className="flex items-center gap-2 text-brand-gold font-bold text-sm">Read miracle <ArrowRight size={14} /></a>
-            </div>
-          </motion.div>
+          {miracleCards.map((card, index) => (
+            <motion.div 
+              key={card.url}
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: index * 0.1 }}
+              className="flex-[0_0_85vw] md:flex-[0_0_400px] h-[480px] bg-brand-dark-brown rounded-[40px] p-8 md:p-10 shrink-0 relative overflow-hidden flex flex-col justify-end text-white shadow-xl group border border-white/5"
+            >
+              <Image 
+                  src={card.image}
+                  alt={card.title}
+                  fill
+                  sizes="(min-width: 768px) 400px, 85vw"
+                  className="object-cover opacity-60 group-hover:scale-110 transition-transform duration-1000"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-brand-dark-brown via-brand-dark-brown/40 to-transparent z-0"></div>
+              
+              <div className="relative z-10">
+                  <h3 className="text-3xl font-serif mb-4 leading-tight italic">{card.title}</h3>
+                  <p className="text-white/60 text-sm leading-relaxed mb-8">{card.description}</p>
+                  <a href={card.url} rel="noopener noreferrer" className="flex items-center gap-2 text-brand-gold font-bold text-sm">Read miracle <ArrowRight size={14} /></a>
+              </div>
+            </motion.div>
+          ))}
 
 
           {/* View All Card */}

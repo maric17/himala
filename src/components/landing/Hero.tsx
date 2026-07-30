@@ -3,100 +3,102 @@
 import React from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { ArrowRight } from "lucide-react";
+import CaptureForm from "@/components/landing/CaptureForm";
 
-/**
- * Himala Every Day Hero Section
- * Features a high-fidelity background banner and the two-button primary CTA.
- */
 const Hero = () => {
-  const [storeLink, setStoreLink] = React.useState("https://apps.apple.com/ca/app/a-miracle-every-day/id1668769557");
-
-  React.useEffect(() => {
-    const userAgent = typeof navigator !== "undefined" ? navigator.userAgent : "";
-    const isIOS = /iPad|iPhone|iPod/.test(userAgent);
-    const isAndroid = /Android/i.test(userAgent);
-
-    if (isIOS) {
-      setStoreLink("https://apps.apple.com/ca/app/a-miracle-every-day/id1668769557");
-    } else if (isAndroid) {
-      setStoreLink("https://play.google.com/store/apps/details?id=net.jesus.amed&hl=en_US");
-    }
-  }, []);
-
   return (
-    <section className="relative min-h-screen flex flex-col items-center justify-center text-center px-4 pt-40 pb-20 bg-brand-brown overflow-hidden">
-      {/* High-Fidelity Background Image with Overlay */}
+    <section className="relative flex min-h-screen items-center overflow-hidden bg-brand-brown px-4 pb-20 pt-32 sm:px-6">
       <div className="absolute inset-0 z-0">
-        <Image 
-          src="/hero_miracle_banner.png" 
-          alt="Himala Every Day Background" 
+        <Image
+          src="/hero_miracle_banner.png"
+          alt="Himala Every Day Background"
           fill
           priority
-          className="object-cover opacity-40"
+          sizes="100vw"
+          className="object-cover opacity-36"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-brand-brown via-brand-brown/80 to-brand-brown/40"></div>
+        <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(26,18,14,0.3)_0%,rgba(26,18,14,0.62)_42%,rgba(26,18,14,0.96)_100%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(220,162,81,0.14),transparent_30%)]" />
       </div>
 
-      {/* Hero Content */}
-      <motion.div 
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.8 }}
-        className="max-w-4xl mx-auto z-10 relative"
-      >
-        <div className="inline-flex items-center gap-2 border border-brand-gold/30 bg-brand-brown/40 backdrop-blur-sm rounded-full px-4 py-1 mb-12">
-          <span className="text-brand-gold text-[10px] uppercase tracking-[0.2em] font-bold flex items-center gap-1">
-            <span className="text-xs">✧</span> Daily Miracles • Free Forever
-          </span>
-        </div>
-        
-        <h1 className="text-5xl md:text-8xl font-serif text-white leading-[1.1] mb-8">
-          A small <i className="font-serif italic text-brand-gold">miracle</i>,<br />
-          delivered every morning.
-        </h1>
-        
-        <p className="text-white/60 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed mb-16 font-light">
-          Life is heavy sometimes. The overthinking, the pressure, the &quot;what now?&quot; — we get it. Himala Every Day is a short, free daily message that somehow makes the day feel lighter.
-        </p>
+      <div className="pointer-events-none absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/notebook.png')] opacity-10 mix-blend-overlay" />
 
-        {/* Two Button CTA Group */}
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
-          <a 
-            href={"https://ph.jesus.net/a-miracle-every-day?utm_source=himalaeveryday&utm_medium=cta&utm_campaign=tlen_amed_2026&utm_content=himalaeveryday_cta#subscribe"}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="group bg-brand-gold hover:bg-brand-gold/90 text-white px-10 py-5 rounded-full font-bold flex items-center gap-3 transition-all hover:scale-105 shadow-[0_0_20px_rgba(220,162,81,0.2)]"
-          >
-            Get Your Daily Miracle <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
-          </a>
-          <a 
+      <div className="relative z-10 mx-auto grid w-full max-w-7xl gap-12 lg:grid-cols-[1.15fr_0.85fr] lg:items-end">
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.7 }}
+          className="max-w-4xl"
+        >
+          <div className="mb-8 inline-flex items-center gap-2 rounded-full border border-brand-gold/30 bg-brand-brown/42 px-4 py-1.5 backdrop-blur-sm">
+            <span className="text-[10px] font-bold uppercase tracking-[0.22em] text-brand-gold">
+              Daily miracles. Free forever.
+            </span>
+          </div>
+
+          <h1 className="text-5xl leading-[1.02] text-white sm:text-6xl md:text-7xl lg:text-[5.4rem]">
+            A small <span className="font-serif italic text-brand-gold">miracle</span>,
+            <br />
+            every morning.
+          </h1>
+
+          <p className="mt-8 max-w-2xl text-lg leading-relaxed text-white/68 md:text-xl">
+            Life gets noisy fast. Himala Every Day sends one short reflection to
+            your inbox each morning so your day starts lighter, steadier, and a
+            little more hopeful.
+          </p>
+
+          <div className="mt-10 grid gap-4 text-sm text-white/56 sm:grid-cols-3">
+            <div className="rounded-[24px] border border-white/10 bg-white/6 px-4 py-4 backdrop-blur-sm">
+              3-minute daily read
+            </div>
+            <div className="rounded-[24px] border border-white/10 bg-white/6 px-4 py-4 backdrop-blur-sm">
+              Tagalog and English
+            </div>
+            <div className="rounded-[24px] border border-white/10 bg-white/6 px-4 py-4 backdrop-blur-sm">
+              No app required to start
+            </div>
+          </div>
+        </motion.div>
+
+        <motion.div
+          id="daily-miracle-capture"
+          initial={{ opacity: 0, y: 28 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.75, delay: 0.12 }}
+          className="rounded-[34px] border border-white/10 bg-white/8 p-5 shadow-[0_30px_70px_rgba(18,10,8,0.22)] backdrop-blur-2xl sm:p-6"
+        >
+          <div className="rounded-[28px] border border-white/10 bg-brand-dark-brown/38 p-5 sm:p-6">
+            <p className="mb-2 text-[11px] font-bold uppercase tracking-[0.26em] text-brand-gold/88">
+              Start here
+            </p>
+            <h2 className="max-w-md text-3xl font-serif leading-tight text-white">
+              Choose where to sign up and we&apos;ll take you straight there.
+            </h2>
+            <p className="mt-3 max-w-md text-sm leading-relaxed text-white/58">
+              Tap once to continue through Jesus.net or Messenger.
+            </p>
+
+            <CaptureForm
+              source="hero"
+              submitLabel="Get My Daily Miracle"
+              helperText="You will continue directly to the sign-up destination you choose."
+              className="mt-6"
+            />
+          </div>
+
+          <a
             href="#read-now"
-            className="border border-white/20 hover:border-brand-gold text-white/80 hover:text-white px-10 py-5 rounded-full font-bold transition-all"
+            className="mt-4 inline-flex items-center text-sm font-semibold text-white/72 transition-colors hover:text-white"
           >
-            See What It&apos;s Like
+            Not ready yet? Read one first.
           </a>
-        </div>
-      </motion.div>
-      
-      {/* Scroll Indicator */}
-      <motion.div 
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1.5, duration: 1 }}
-        className="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-4 z-10"
-      >
-        <span className="text-[10px] uppercase tracking-[0.3em] font-bold text-white/20">Scroll</span>
-        <div className="w-[1px] h-12 bg-gradient-to-b from-brand-gold to-transparent"></div>
-      </motion.div>
-
-      {/* Subtle Noise Texture */}
-      <div className="absolute inset-0 opacity-10 pointer-events-none bg-[url('https://www.transparenttextures.com/patterns/notebook.png')] mix-blend-overlay z-0"></div>
+        </motion.div>
+      </div>
     </section>
   );
 };
 
 export default Hero;
-
-

@@ -9,6 +9,10 @@
   --color-card-red: #A04E40;
   --color-card-green: #405D40;
   --color-card-gold: #CB9934;
+
+  --glass-soft: rgba(255, 255, 255, 0.08);
+  --glass-strong: rgba(255, 255, 255, 0.12);
+  --surface-muted: rgba(42, 30, 23, 0.06);
   
   --font-serif: var(--font-playfair);
   --font-sans: var(--font-montserrat);
@@ -37,9 +41,48 @@ body {
   100% { transform: translateX(-50%); }
 }
 
+@keyframes feed-marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes fade-up-soft {
+  0% {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .animate-marquee {
   display: flex;
   animation: marquee 40s linear infinite;
+}
+
+.animate-feed {
+  display: flex;
+  animation: feed-marquee 56s linear infinite;
+}
+
+.animate-feed:hover {
+  animation-play-state: paused;
+}
+
+.glass-panel {
+  background: var(--glass-soft);
+  backdrop-filter: blur(18px);
+}
+
+.glass-panel-strong {
+  background: var(--glass-strong);
+  backdrop-filter: blur(24px);
+}
+
+.animate-fade-up-soft {
+  animation: fade-up-soft 0.45s ease-out both;
 }
 
 .no-scrollbar::-webkit-scrollbar {
@@ -50,4 +93,3 @@ body {
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
-

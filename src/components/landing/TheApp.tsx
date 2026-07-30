@@ -74,8 +74,8 @@ const TheApp = () => {
                                 src="/images/churches/Taglish-iPhone-on-Hand.png"
                                 alt="Himala Every Day Mobile App"
                                 fill
+                                sizes="(min-width: 768px) 448px, 100vw"
                                 className="object-contain z-10"
-                                priority
                             />
                         </div>
                     </motion.div>
@@ -86,5 +86,4 @@ const TheApp = () => {
 };
 
 export default TheApp;
-
 

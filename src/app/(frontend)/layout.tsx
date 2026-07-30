@@ -1,7 +1,10 @@
 import type { Metadata } from "next";
 import { Montserrat, Playfair_Display } from "next/font/google";
 import Script from "next/script";
-import "./globals.scss";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+import MiracleChatWidget from "@/components/landing/MiracleChatWidget";
+import "../globals.scss";
 
 const montserrat = Montserrat({
   variable: "--font-montserrat",
@@ -14,6 +17,7 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://himalaeveryday.ph"),
   title: "Himala Every Day - A small miracle, delivered every morning.",
   description:
     "Welcome to Jesus.net! Access mga articles, resources, at tools to deepen your faith and at mas makilala si Jesus—ang Kanyang mga teachings and love.",
@@ -32,10 +36,7 @@ export const metadata: Metadata = {
   },
 };
 
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
-
-export default function RootLayout({
+export default function FrontendLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
@@ -59,9 +60,8 @@ export default function RootLayout({
         <Header />
         {children}
         <Footer />
+        <MiracleChatWidget />
       </body>
     </html>
   );
 }
-
-
