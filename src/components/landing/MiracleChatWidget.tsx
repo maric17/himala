@@ -114,7 +114,7 @@ export default function MiracleChatWidget() {
         {
           id: crypto.randomUUID(),
           role: "assistant",
-          content: payload.message,
+          content: payload.message.replace(/\*/g, ""),
           shouldInviteSubscription:
             payload.kind === "chat" && payload.shouldInviteSubscription !== false,
         },
@@ -197,19 +197,34 @@ export default function MiracleChatWidget() {
                       <p className="whitespace-pre-wrap">{message.content}</p>
 
                       {message.shouldInviteSubscription ? (
-                        <button
-                          type="button"
-                          onClick={() => {
-                            trackEvent("chat_subscription_handoff_clicked", {
-                              provider: "openai",
-                            });
-                            window.location.assign(buildHandoffUrl("email"));
-                          }}
-                          className="mt-3 inline-flex items-center gap-2 rounded-md bg-brand-dark-brown px-3 py-2 text-xs font-bold text-white transition-colors hover:bg-brand-dark-brown/88"
-                        >
-                          Get daily miracles
-                          <ArrowRight className="h-3.5 w-3.5" />
-                        </button>
+                        <div className="mt-3 flex flex-col gap-2">
+                          <button
+                            type="button"
+                            onClick={() => {
+                              trackEvent("chat_subscription_handoff_clicked", {
+                                provider: "openai",
+                              });
+                              window.location.assign(buildHandoffUrl("email"));
+                            }}
+                            className="inline-flex items-center gap-2 rounded-md bg-brand-dark-brown px-3 py-2 text-xs font-bold text-white transition-colors hover:bg-brand-dark-brown/88"
+                          >
+                            Get daily miracles
+                            <ArrowRight className="h-3.5 w-3.5" />
+                          </button>
+                          <button
+                            type="button"
+                            onClick={() => {
+                              trackEvent("chat_coach_handoff_clicked", {
+                                provider: "openai",
+                              });
+                              window.location.assign(buildHandoffUrl("messenger"));
+                            }}
+                            className="inline-flex items-center gap-2 rounded-md border border-brand-dark-brown/20 bg-transparent px-3 py-2 text-xs font-bold text-brand-dark-brown transition-colors hover:bg-brand-dark-brown/5"
+                          >
+                            Talk to one of our e-coaches
+                            <ArrowRight className="h-3.5 w-3.5" />
+                          </button>
+                        </div>
                       ) : null}
                     </div>
                   </div>
