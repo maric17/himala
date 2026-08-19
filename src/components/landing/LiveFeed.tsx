@@ -58,7 +58,6 @@ const cities = [
   "Lapu-Lapu",
   "Ormoc",
   "Butuan",
-  "Surigao City",
   "Dipolog",
   "Koronadal",
   "Kidapawan",
@@ -67,6 +66,7 @@ const cities = [
   "Malaybalay",
   "Digos",
   "Panabo",
+  "Pampanga",
 ];
 
 const actions = [
@@ -98,7 +98,7 @@ const times = [
 ];
 
 const tones: FeedItem["tone"][] = ["gold", "green", "brown"];
-const widths = ["w-[15rem]", "w-[17rem]", "w-[19rem]", "w-[21rem]"];
+const widths = ["w-[19rem]", "w-[21rem]", "w-[23rem]", "w-[25rem]"];
 
 const toneClasses: Record<FeedItem["tone"], string> = {
   gold: "bg-brand-gold shadow-[0_0_0_6px_rgba(220,162,81,0.14)]",
@@ -243,7 +243,7 @@ export default function LiveFeed() {
                     />
                     <span className="min-w-0">
                       <span className="font-semibold text-brand-brown">
-                        {item.city}
+                        Someone from {item.city}
                       </span>{" "}
                       {item.action}
                       <span className="ml-2 whitespace-nowrap text-brand-brown/38">
